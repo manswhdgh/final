@@ -4,47 +4,51 @@
 	pageEncoding="UTF-8"%>
 <html>
 <head>
-
+<link rel="stylesheet" href="resources/css/bootstrap.min.css">
 <style type="text/css">
 #btn1 {
 	position: relative;
-	top: 230px;
-	left: 350px;
+	top: 130px;
+	left: 130px;
+	width: 329px;
 }
 
 #btn2 {
 	position: relative;
-	top: 130px;
-	left: 591px;
+	top: -20px;
+	left: 471px;
+	width: 200px;
 }
 
 #btn3 {
 	position: relative;
-	top: 140px;
-	left: 350px;
+	top: -10px;
+	left: 130px;
+	width: 160px;
 }
 
 #btn4 {
 	position: relative;
-	top: 40px;
-	left: 470px;
+	top: -160px;
+	left: 300px;
+	width: 160px;
 }
 
 #btn5 {
 	position: relative;
-	top: -60px;
-	left: 591px;
+	top: -310px;
+	left: 471px;
+	width: 200px;
 }
 
-#btn6 {
+#righttable {
 	position: relative;
-	top: -370px;
-	left: 750px;
+	top : -280px;
+	left : -70px;
 }
 
 table {
-	width: 45%;
-	height: 31%;
+	height: 25%;
 	position: relative;
 	top: -355px;
 	left: 780px;
@@ -54,80 +58,53 @@ table, th, td {
 	border: 1px solid #bcbcbc;
 }
 
-td {
-	height: 30%;
-}
+
 </style>
 </head>
 <body>
 	<div id="btn1">
-		<button style="width: 230px; height: 100px;">1.구매하기/판매하기</button>
+		<button style="width: 329px; height: 150px;" class="btn btn-primary">1.구매하기/판매하기</button>
 	</div>
 	<div id="btn2">
-		<button style="width: 150px; height: 100px;">2.경매/역경매</button>
+		<button style="width: 200px; height: 150px;" class="btn btn-success">2.경매/역경매</button>
 	</div>
 	<div id="btn3">
 		<button onclick="window.location ='MyInfo'"
-			style="width: 110px; height: 100px;">3.내 정보</button>
+			style="width: 160px; height: 150px;" class="btn btn-info">3.내
+			정보</button>
 	</div>
 	<div id="btn4">
-		<button style="width: 110px; height: 100px;">4.충전</button>
+		<button style="width: 160px; height: 150px;" class="btn btn-danger">4.충전</button>
 	</div>
 	<div id="btn5">
-		<button style="width: 150px; height: 100px;">5.고객센터</button>
+		<button style="width: 200px; height: 150px;" class="btn btn-warning">5.고객센터</button>
 	</div>
-	<table cellspacing="0" cellpadding="0">
-		<caption>
-			<b><h1>공지사항</h1></b>
-		</caption>
-		<thead>
-			<tr>
-				<th>글쓴이</th>
-				<th>제목</th>
-				<th>작성일자</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<td>관리자</td>
-				<td>이벤트 당첨자 발표</td>
-				<td>2019.08.16</td>
-			</tr>
-			<tr>
-				<td>관리자</td>
-				<td>이벤트 당첨자 발표</td>
-				<td>2019.08.16</td>
-			</tr>
-			<tr>
-				<td>관리자</td>
-				<td>이벤트 당첨자 발표</td>
-				<td>2019.08.16</td>
-			</tr>
-			<tr>
-				<td>관리자</td>
-				<td>이벤트 당첨자 발표</td>
-				<td>2019.08.16</td>
-			</tr>
-			<tr>
-				<td>관리자</td>
-				<td>이벤트 당첨자 발표</td>
-				<td>2019.08.16</td>
-			</tr>
-			<tr>
-				<td>관리자</td>
-				<td>이벤트 당첨자 발표</td>
-				<td>2019.08.16</td>
-			</tr>
+	 
+	<div class="row" id = "righttable">
+		<div class="col-sm-6">
+			<table cellspacing="0" cellpadding="0" class="table table-hover">
+				<caption>
+					<h1 align = "center">공지사항</h1>
+				</caption>
+				<thead>
+					<tr class="table-active">
+						<th>글쓴이</th>
+						<th>제목</th>
+						<th>작성일자</th>
+					</tr>
+				</thead>
+				<tbody>
 
-			<tr>
-				<td>관리자</td>
-				<td>이벤트 당첨자 발표</td>
-				<td>2019.08.16</td>
-			</tr>
-
-
-		</tbody>
-
-	</table>
+					<c:forEach var="nt" items="${nList}">
+						<tr>
+							<td>${nt.nt_mId}</td>
+							<td>${nt.nt_Contents}</td>
+							<td>${nt.nt_Regdate}</td>
+						</tr>
+					</c:forEach>
+				</tbody>
+			</table>
+		</div>
+	</div>
 </body>
 </html>
