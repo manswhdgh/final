@@ -140,8 +140,8 @@ html, body {
 				<ul class="hide">
 					<a href="./inquiry"><li id="inquiry"><h3>1:1문의</h3></li></a>
 					<a href="./livechatList"><li id="liveChat"><h3>실시간채팅</h3></li></a>
-					<a href="window.location()"><li id="report"><h3>신고</h3></li></a>
-					<a href="window.location()"><li id="faq"><h3>FAQ</h3></li></a>
+					<a href="./boardReport"><li id="report"><h3>신고</h3></li></a>
+					<a href="./viewQna"><li id="faq"><h3>FAQ</h3></li></a>
 				</ul></li>
 		</ul>
 	</div>
