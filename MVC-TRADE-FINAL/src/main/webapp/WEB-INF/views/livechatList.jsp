@@ -10,7 +10,6 @@
 	position: relative;
 	top: 100px;
 	left: 200px;
-	width: 50%;
 }
 </style>
 </head>
