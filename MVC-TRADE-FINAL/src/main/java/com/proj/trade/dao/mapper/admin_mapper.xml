@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.proj.trade.dao.IAdminDao">
+	<select id="getAdmPromoList" resultType="board">
+			<![CDATA[
+		SELECT * FROM admpromolist_1 WHERE RONUM>=#{pNum}*10-9
+		AND RONUM<=#{pNum}*10
+		]]>
+		
+	</select>
+
+	<select id="getAdmPromoCount" resultType="int">
+		SELECT COUNT(*) FROM
+		admpromolist_1
+		
+	</select>
+
+
+</mapper>

@@ -116,13 +116,13 @@ html, body {
 	left: 200px;
 }
 </style>
-
+<body>
 	<div id="menubar">
 		<ul class= "main">
 			<li class="menu"><h1>MENU</h1></li>
 			<li class="menu"><a><h2>회원관리</h2></a>
 				<ul class="hide">
-					<a href="./admPro"><li id="sellerRegistation"><h3>판매자신청</h3></li></a>
+					<a href="./admPromo"><li id="sellerRegistation"><h3>판매자신청</h3></li></a>
 					<a href="./addBanList"><li id="blackList"><h3>블랙리스트</h3></li></a>
 				</ul></li>
 
@@ -140,8 +140,8 @@ html, body {
 				<ul class="hide">
 					<a href="./inquiry"><li id="inquiry"><h3>1:1문의</h3></li></a>
 					<a href="./livechatList"><li id="liveChat"><h3>실시간채팅</h3></li></a>
-					<a href="window.location()"><li id="report"><h3>신고</h3></li></a>
-					<a href="window.location()"><li id="faq"><h3>FAQ</h3></li></a>
+					<a href="./boardReport"><li id="report"><h3>신고</h3></li></a>
+					<a href="./viewQna"><li id="faq"><h3>FAQ</h3></li></a>
 				</ul></li>
 		</ul>
 	</div>
@@ -170,7 +170,7 @@ html, body {
 			$('#articleView_layer').addClass('open');
 			$.ajax({
 				type : 'get',
-				url : 'admPro',
+				url : 'admPromo',
 				data : {
 					m_num : num
 				},

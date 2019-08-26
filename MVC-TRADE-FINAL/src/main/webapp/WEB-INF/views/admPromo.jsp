@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,6 +13,10 @@
 	left: 200px;
 }
 </style>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<script src="resources/js/jquery.serializeObject.js"></script>
 </head>
 <body>
 	<div id="admPromo">
@@ -23,36 +28,27 @@
 				<th width="200">신청일자</th>
 				<th width="100">승인여부</th>
 			</tr>
-			<tr bgcolor="skyblue" height="30">
-				<th width="100">1</th>
-				<th width="200">아무개1</th>
-				<th width="200">2019-08-19</th>
-				<th width="100">승인여부</th>
-			</tr>
-			<tr bgcolor="skyblue" height="30">
-				<th width="100">1</th>
-				<th width="200">아무개2</th>
-				<th width="200">2019-08-19</th>
-				<th width="100">승인여부</th>
-			</tr>
-			<tr bgcolor="skyblue" height="30">
-				<th width="100">1</th>
-				<th width="200">아무개3</th>
-				<th width="200">2019-08-19</th>
-				<th width="100">승인여부</th>
-			</tr>
-			<tr bgcolor="skyblue" height="30">
-				<th width="100">1</th>
-				<th width="200">아무개4</th>
-				<th width="200">2019-08-19</th>
-				<th width="100">승인여부</th>
-			</tr>
+			<c:if test="${AdmPromoList.isEmpty()}">
+				<tr>
+					<td colspan="4"><h3 style="text-align: center;">접수된 신청이
+							없습니다.</h3></td>
+				</tr>
+			</c:if>
+			<c:if test='${!AdmPromoList.isEmpty()}'>
+				<c:forEach var="board" items="${AdmPromoList}">
+					<tr height="25">
+						<td align="center">${board.b_Num}</td>
+						<td align="center">${board.b_Id}</td>
+						<td align="center">${board.b_Date}</td>
+						<td align="center">${board.b_Group}</td>
+					</tr>
+				</c:forEach>
+			</c:if>
 
 		</table>
 		<br>
 		<hr>
 		<hr>
-		<div align="center">${paging}</div>
 
 		<div id="articleView_layer">
 			<div id="bg_layer"></div>
@@ -60,17 +56,21 @@
 		</div>
 
 		<div id="footer">
-			<h5>페이징자리입니다</h5>
-			<table>
-				<tr bgcolor="gray" height="10">
-					<th width="100">글번호</th>
-					<th width="400">검색창</th>
-					<td align="center"><input type="button" id="admPromo_search"
-						width="100" value="검색"></td>
-				</tr>
-			</table>
-		</div>
+			<div align="center">${paging}</div>
+			<div class="form-group row justify-content-center">
+
+				<div class="w100" style="padding-right: 10px">
+					<select class="form-control form-control-sm" name="searchType"
+						id="searchType">
+						<option value="b_Title">글번호</option>
+						<option value="b_Id">신청아이디</option>
+						<option value="b_Group">승인여부</option>
+					</select>
+
+				</div>
+				</div>
 	</div>
 
 </body>
+
 </html>
