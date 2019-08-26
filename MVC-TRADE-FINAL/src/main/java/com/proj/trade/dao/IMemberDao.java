@@ -1,5 +1,8 @@
 package com.proj.trade.dao;
 
-public class IMemberDao {
+import org.springframework.stereotype.Service;
+
+@Service
+public interface IMemberDao {
 
 }
