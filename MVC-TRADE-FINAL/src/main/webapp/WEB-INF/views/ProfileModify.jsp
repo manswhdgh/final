@@ -5,8 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css"
+	href="resources/css/bootstrap.min.css">
 <style>
 #title {
 	position: relative;
@@ -25,14 +25,21 @@
 
 #btn2 {
 	position: relative;
-	top: -300px;
-	left: 650px;
-	width: 28%;
+	top: 141px;
+	left: 880px;
+	width: 13%;
+}
+
+#btn3 {
+	position: relative;
+	top: 101px;
+	left: 1090px;
+	width: 13%;
 }
 
 #login {
 	position: relative;
-	top: -340px;
+	top: -410px;
 	left: 300px;
 	width: 30%;
 	height: 150px;
@@ -40,41 +47,54 @@
 
 #myinfo {
 	position: relative;
-	top: -345px;
+	top: -415px;
 	left: 300px;
 	width: 30%;
 }
 
 #baddr {
 	position: relative;
-	top: -370px;
+	top: -440px;
 	left: 300px;
 	width: 30%;
 }
 
 table, tr {
 	border: 1px solid #5ad2ff;
-	width: 95%;
-	background-color: pink;
+	width: 120%;
+	text-align: center;
+}
+
+th {
+	border: 1px solid #5ad2ff;
+	width: 25%;
+	text-align: center;
+}
+
+input {
+	position: relative;
+	left:0px;
+	width: 100%;
+	border: none;
 }
 
 #a {
 	position: relative;
-	top: -290px;
+	top: -360px;
 	left: 300px;
 	width: 60%;
 }
 
 #b {
 	position: relative;
-	top: -320px;
+	top: -390px;
 	left: 300px;
 	width: 60%;
 }
 
 #c {
 	position: relative;
-	top: -325px;
+	top: -395px;
 	left: 300px;
 	width: 60%;
 }
@@ -84,7 +104,7 @@ table, tr {
 	<!-- 상단 제목 -->
 	<div id="title">개인정보 수정</div>
 
-		<div id="btn1">
+	<div id="btn1">
 		<button class="btn btn-primary" onclick="window.location ='MyInfo'"
 			style="width: 180px; height: 40px;">내 정보</button>
 		<br> <br>
@@ -122,6 +142,15 @@ table, tr {
 			onclick="window.location ='CancellationHistory'"
 			style="width: 180px; height: 40px;">취소 내역</button>
 	</div>
+
+	<div id="btn2">
+		<button class="btn btn-info" style="width: 180px; height: 40px;">정보
+			수정하기</button>
+	</div>
+	<div id="btn3">
+		<button class="btn btn-danger" style="width: 180px; height: 40px;">취소하기</button>
+	</div>
+
 	<div id="a">
 		<b>로그인 정보
 			<hr>
@@ -130,19 +159,19 @@ table, tr {
 	<div id="login">
 		<table>
 			<tr>
-				<td>이름 :</td>
+				<th>이름 :</th>
 				<td><input type="text" name="formname"
 					placeholder="${member.m_name}"></td>
 			</tr>
 			<br>
 			<tr>
-				<td>아이디 :</td>
+				<th>아이디 :</th>
 				<td><input type="text" name="formname"
 					placeholder="${member.m_id}"></td>
 			</tr>
 			<br>
 			<tr>
-				<td>비밀번호 :</td>
+				<th>비밀번호 :</th>
 				<td><input type="text" name="formname"
 					placeholder="${member.m_pw}"></td>
 			</tr>
@@ -157,13 +186,13 @@ table, tr {
 	<div id="myinfo">
 		<table>
 			<tr>
-				<td>휴대폰 번호 :</td>
+				<th>휴대폰 번호 :</th>
 				<td><input type="text" name="formname"
 					placeholder="${member.m_phone}"></td>
 			</tr>
 			<br>
 			<tr>
-				<td>주소 :</td>
+				<th>주소 :</th>
 				<td><input type="text" name="formname"
 					placeholder="${member.m_addr}"></td>
 			</tr>
@@ -178,29 +207,25 @@ table, tr {
 	<div id="baddr">
 		<table>
 			<tr>
-				<td>은행명 :</td>
+				<th>은행명 :</th>
 				<td><input type="text" name="formname"
 					placeholder="${member.m_bank}"></td>
 			</tr>
 			<br>
 			<tr>
-				<td>계좌번호 :</td>
+				<th>계좌번호 :</th>
 				<td><input type="text" name="formname"
 					placeholder="${member.m_baddr}"></td>
 			</tr>
 			<br>
 			<tr>
-				<td>예금주 :</td>
+				<th>예금주 :</th>
 				<td><input type="text" name="formname"
 					placeholder="${member.m_name}"></td>
 			</tr>
 		</table>
 
 	</div>
-	<div id="btn2">
-		<button style="width: 180px; height: 40px;">정보 수정하기</button>
-		&nbsp&nbsp&nbsp&nbsp
-		<button style="width: 180px; height: 40px;">취소하기</button>
-	</div>
+
 </body>
 </html>

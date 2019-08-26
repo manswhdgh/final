@@ -129,42 +129,42 @@ td, tr {
 					<tr>
 						<td><input type="checkbox" /></td>
 						<td>${Auction.a_tllistnum}</td>
-						<td>${Auction.a_title}</td>
-						<td>${Auction.a_high}</td>
-						<td>${Auction.a_mid}</td>
-						<td>${Auction.a_enddate}</td>
+						<td>${Auction.a_Title}</td>
+						<td>${Auction.a_High}</td>
+						<td>${Auction.a_mId}</td>
+						<td>${Auction.a_EndDate}</td>
 					</tr>
 					<tr>
 						<td><input type="checkbox" /></td>
 						<td>${Auction.a_tllistnum}</td>
-						<td>${Auction.a_title}</td>
-						<td>${Auction.a_high}</td>
-						<td>${Auction.a_mid}</td>
-						<td>${Auction.a_enddate}</td>
+						<td>${Auction.a_Title}</td>
+						<td>${Auction.a_High}</td>
+						<td>${Auction.a_mId}</td>
+						<td>${Auction.a_EndDate}</td>
 					</tr>
 					<tr>
 						<td><input type="checkbox" /></td>
 						<td>${Auction.a_tllistnum}</td>
-						<td>${Auction.a_title}</td>
-						<td>${Auction.a_high}</td>
-						<td>${Auction.a_mid}</td>
-						<td>${Auction.a_enddate}</td>
+						<td>${Auction.a_Title}</td>
+						<td>${Auction.a_High}</td>
+						<td>${Auction.a_mId}</td>
+						<td>${Auction.a_EndDate}</td>
 					</tr>
 					<tr>
 						<td><input type="checkbox" /></td>
 						<td>${Auction.a_tllistnum}</td>
-						<td>${Auction.a_title}</td>
-						<td>${Auction.a_high}</td>
-						<td>${Auction.a_mid}</td>
-						<td>${Auction.a_enddate}</td>
+						<td>${Auction.a_Title}</td>
+						<td>${Auction.a_High}</td>
+						<td>${Auction.a_mId}</td>
+						<td>${Auction.a_EndDate}</td>
 					</tr>
 					<tr>
 						<td><input type="checkbox" /></td>
 						<td>${Auction.a_tllistnum}</td>
-						<td>${Auction.a_title}</td>
-						<td>${Auction.a_high}</td>
-						<td>${Auction.a_mid}</td>
-						<td>${Auction.a_enddate}</td>
+						<td>${Auction.a_Title}</td>
+						<td>${Auction.a_High}</td>
+						<td>${Auction.a_mId}</td>
+						<td>${Auction.a_EndDate}</td>
 					</tr>
 				</tbody>
 			</table>
@@ -187,42 +187,42 @@ td, tr {
 					<tr>
 						<td><input type="checkbox" /></td>
 						<td>${Auction.a_tllistnum}</td>
-						<td>${Auction.a_title}</td>
-						<td>${Auction.a_buynow}</td>
-						<td>${Auction.a_mid}</td>
-						<td>${Auction.a_enddate}</td>
+						<td>${Auction.a_Title}</td>
+						<td>${Auction.a_High}</td>
+						<td>${Auction.a_mId}</td>
+						<td>${Auction.a_EndDate}</td>
 					</tr>
 					<tr>
 						<td><input type="checkbox" /></td>
 						<td>${Auction.a_tllistnum}</td>
-						<td>${Auction.a_title}</td>
-						<td>${Auction.a_buynow}</td>
-						<td>${Auction.a_mid}</td>
-						<td>${Auction.a_enddate}</td>
+						<td>${Auction.a_Title}</td>
+						<td>${Auction.a_High}</td>
+						<td>${Auction.a_mId}</td>
+						<td>${Auction.a_EndDate}</td>
 					</tr>
 					<tr>
 						<td><input type="checkbox" /></td>
 						<td>${Auction.a_tllistnum}</td>
-						<td>${Auction.a_title}</td>
-						<td>${Auction.a_buynow}</td>
-						<td>${Auction.a_mid}</td>
-						<td>${Auction.a_enddate}</td>
+						<td>${Auction.a_Title}</td>
+						<td>${Auction.a_High}</td>
+						<td>${Auction.a_mId}</td>
+						<td>${Auction.a_EndDate}</td>
 					</tr>
 					<tr>
 						<td><input type="checkbox" /></td>
 						<td>${Auction.a_tllistnum}</td>
-						<td>${Auction.a_title}</td>
-						<td>${Auction.a_buynow}</td>
-						<td>${Auction.a_mid}</td>
-						<td>${Auction.a_enddate}</td>
+						<td>${Auction.a_Title}</td>
+						<td>${Auction.a_High}</td>
+						<td>${Auction.a_mId}</td>
+						<td>${Auction.a_EndDate}</td>
 					</tr>
 					<tr>
 						<td><input type="checkbox" /></td>
 						<td>${Auction.a_tllistnum}</td>
-						<td>${Auction.a_title}</td>
-						<td>${Auction.a_buynow}</td>
-						<td>${Auction.a_mid}</td>
-						<td>${Auction.a_enddate}</td>
+						<td>${Auction.a_Title}</td>
+						<td>${Auction.a_High}</td>
+						<td>${Auction.a_mId}</td>
+						<td>${Auction.a_EndDate}</td>
 					</tr>
 				</tbody>
 			</table>

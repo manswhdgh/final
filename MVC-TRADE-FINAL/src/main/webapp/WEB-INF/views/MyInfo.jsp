@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <link rel="stylesheet" type="text/css"
@@ -39,18 +40,74 @@
 	position: relative;
 	top: -388px;
 	left: 250px;
-	font: bold 1.5em/1.0em 맑은고딕체;
 	width: 30%;
+	height: 330px;
 	border: 2px solid #5CD1E5;
 }
 
 #tb2 {
 	position: relative;
-	top: -691px;
+	top: -719px;
 	left: 730px;
-	font: bold 1.5em/1.0em 맑은고딕체;
 	width: 30%;
+	height: 330px;
 	border: 2px solid #5CD1E5;
+}
+
+#name {
+	position: relative;
+	top: 0px;
+	left: 0px;
+	font: bold 1.5em/1.0em 맑은고딕체;
+	width: 100%;
+}
+
+#grade {
+	position: relative;
+	top: 50px;
+	left: 0px;
+	font: bold 1.5em/1.0em 맑은고딕체;
+	width: 100%;
+}
+
+#trade {
+	position: relative;
+	top: 100px;
+	left: 0px;
+	font: bold 1.5em/1.0em 맑은고딕체;
+	width: 100%;
+}
+
+#auction {
+	position: relative;
+	top: 150px;
+	left: 0px;
+	font: bold 1.5em/1.0em 맑은고딕체;
+	width: 100%;
+}
+
+#mile {
+	position: relative;
+	top: 200px;
+	left: 0px;
+	font: bold 1.5em/1.0em 맑은고딕체;
+	width: 100%;
+}
+
+#bank {
+	position: relative;
+	top: 0px;
+	left: 0px;
+	font: bold 1.5em/1.0em 맑은고딕체;
+	width: 100%;
+}
+
+#addr {
+	position: relative;
+	top: 50px;
+	left: 0px;
+	font: bold 1.5em/1.0em 맑은고딕체;
+	width: 100%;
 }
 </style>
 </head>
@@ -108,57 +165,71 @@
 	</div>
 
 	<!-- 가져온 회원정보를 출력한다. -->
+
 	<div id="tb1">
-		<table>
-			<tr>
-				<td>이름[닉네임] :</td>
-				<td>${Member.m_Id}</td>
-			</tr>
-		</table>
-		<br> <br>
-		<table>
-			<tr>
-				<td>등급 :</td>
-				<td>${Grade.g_Name}</td>
-			</tr>
-		</table>
-		<br> <br>
-		<table>
-			<tr>
-				<td>진행중인 거래 :</td>
-				<td>${Member.m_tCount}</td>
-			</tr>
-		</table>
-		<br> <br>
-		<table>
-			<tr>
-				<td>진행중인 경매 :</td>
-				<td>${Member.m_tCount}</td>
-			</tr>
-		</table>
-		<br> <br>
-		<table>
-			<tr>
-				<td>마일리지 :</td>
-				<td>${Member.m_Mile}</td>
-			</tr>
-		</table>
+		<div id="name">
+			<table>
+				<tr>
+					<td>이름[닉네임] :</td>
+					<td>${UserInfo.m_Id}</td>
+				</tr>
+			</table>
+		</div>
+
+		<div id="grade">
+			<table>
+				<tr>
+					<td>등급 :</td>
+					<td>${UserInfo.g_Name}</td>
+				</tr>
+			</table>
+		</div>
+
+		<div id="trade">
+			<table>
+				<tr>
+					<td>진행중인 거래 :</td>
+					<td>${UserInfo.m_tCount}</td>
+				</tr>
+			</table>
+		</div>
+		<div id="auction">
+			<table>
+				<tr>
+					<th>진행중인 경매 :</th>
+					<td>${UserInfo.m_tCount}</td>
+				</tr>
+			</table>
+		</div>
+		<div id="mile">
+			<table>
+				<tr>
+					<th>마일리지 :</th>
+				</tr>
+				<tr>
+					<td>${UserInfo.m_Mile}</td>
+				</tr>
+			</table>
+		</div>
 	</div>
+
 	<div id="tb2">
-		<table>
-			<tr>
-				<td>내 은행 :</td>
-				<td>${Member.m_Bank}</td>
-			</tr>
-		</table>
-		<table>
-			<br>
-			<br>
-			<tr>
-				<td>계좌 번호 :</td>
-				<td>${Member.m_m_bAddr}</td>
-			</tr>
-		</table>
+		<div id="bank">
+			<table>
+				<tr>
+					<th>내 은행 :</th>
+					<td>${UserInfo.m_Bank}</td>
+				</tr>
+			</table>
+		</div>
+		<div id="addr">
+			<table>
+				<tr>
+					<th>계좌 번호 :</th>
+					<td>${UserInfo.m_bAddr}</td>
+				</tr>
+			</table>
+		</div>
 	</div>
 </body>
 </html>

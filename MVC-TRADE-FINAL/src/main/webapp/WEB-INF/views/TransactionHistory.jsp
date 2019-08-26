@@ -5,8 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css"
+	href="resources/css/bootstrap.min.css">
 <style>
 #title {
 	position: relative;
@@ -30,20 +30,21 @@
 	height: 40%;
 	margin: 20px 0px;
 	position: relative;
-	top: -290px;
-	left: 300px;
+	top: -270px;
+	left: 250px;
 	text-align: center;
 }
 
-td, tr {
+th,td, tr {
 	border: 1px solid #bcbcbc;
 }
 
 #category {
 	position: relative;
-	top: -290px;
-	left: 300px;
-	width: 60%;
+	top: -276px;
+	left: 250px;
+	width: 80%;
+	font: bold 1.0em/1.0em 맑은고딕체;
 }
 </style>
 </head>
@@ -53,35 +54,41 @@ td, tr {
 	<div id="title">결제 내역</div>
 
 	<div id="btn1">
-		<button onclick="window.location ='MyInfo'"
+		<button class="btn btn-primary" onclick="window.location ='MyInfo'"
 			style="width: 180px; height: 40px;">내 정보</button>
 		<br> <br>
 
-		<button onclick="window.location ='MsgMain'"
+		<button class="btn btn-secondary" onclick="window.location ='MsgMain'"
 			style="width: 180px; height: 40px;">메시지함</button>
 		<br> <br>
 
-		<button onclick="window.location ='BuyManagement'"
+		<button class="btn btn-success"
+			onclick="window.location ='BuyManagement'"
 			style="width: 180px; height: 40px;">구매 관리</button>
 		<br> <br>
 
-		<button onclick="window.location ='SalesManagement'"
+		<button class="btn btn-danger"
+			onclick="window.location ='SalesManagement'"
 			style="width: 180px; height: 40px;">판매 관리</button>
 		<br> <br>
 
-		<button onclick="window.location ='AuctionManagement'"
+		<button class="btn btn-warning"
+			onclick="window.location ='AuctionManagement'"
 			style="width: 180px; height: 40px;">경매 관리</button>
 		<br> <br>
 
-		<button onclick="window.location ='ProfileModify'"
+		<button class="btn btn-info"
+			onclick="window.location ='ProfileModify'"
 			style="width: 180px; height: 40px;">개인정보수정</button>
 		<br> <br>
 
-		<button onclick="window.location ='TransactionHistory'"
+		<button class="btn btn-light"
+			onclick="window.location ='TransactionHistory'"
 			style="width: 180px; height: 40px;">결제 내역</button>
 		<br> <br>
 
-		<button onclick="window.location ='CancellationHistory'"
+		<button class="btn btn-dark"
+			onclick="window.location ='CancellationHistory'"
 			style="width: 180px; height: 40px;">취소 내역</button>
 	</div>
 
@@ -92,19 +99,19 @@ td, tr {
 	<div id="category">
 		<ul class="nav nav-tabs">
 			<li class="nav-item"><a class="nav-link active"
-				data-toggle="tab" href="#aaa">구매 내역</a></li>
+				data-toggle="tab" href="#a">구매 내역</a></li>
 			<li class="nav-item"><a class="nav-link" data-toggle="tab"
-				href="#bbb">판매 내역</a></li>
+				href="#b">판매 내역</a></li>
 			<li class="nav-item"><a class="nav-link" data-toggle="tab"
-				href="#ccc">경매 내역</a></li>
+				href="#c">경매 내역</a></li>
 			<li class="nav-item"><a class="nav-link" data-toggle="tab"
-				href="#ddd">역경매 내역</a></li>
+				href="#d">역경매 내역</a></li>
 		</ul>
 	</div>
 
 	<!-- 테이블 상세정보 -->
 	<div class="tab-content">
-		<div class="tab-pane fade show active" id="aaa">
+		<div class="tab-pane fade show active" id="a">
 
 			<table id="tb1">
 				<thead>
@@ -153,7 +160,7 @@ td, tr {
 			</table>
 
 		</div>
-		<div class="tab-pane fade" id="bbb">
+		<div class="tab-pane fade" id="b">
 
 			<table id="tb1">
 				<thead>
@@ -202,7 +209,7 @@ td, tr {
 			</table>
 
 		</div>
-		<div class="tab-pane fade" id="ccc">
+		<div class="tab-pane fade" id="c">
 
 			<table id="tb1">
 				<thead>
@@ -247,7 +254,7 @@ td, tr {
 				</tbody>
 			</table>
 		</div>
-		<div class="tab-pane fade" id="ddd">
+		<div class="tab-pane fade" id="d">
 
 			<table id="tb1">
 				<thead>

@@ -46,7 +46,7 @@
 	text-align: center;
 }
 
-td, tr {
+th, td, tr {
 	border: 1px solid #bcbcbc;
 }
 </style>
