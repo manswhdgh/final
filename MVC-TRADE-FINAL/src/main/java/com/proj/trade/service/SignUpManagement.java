@@ -37,9 +37,10 @@ public class SignUpManagement{
 	//회원가입
 	public String signUp(Member mb){
 		mav = new ModelAndView();
+		BCryptPasswordEncoder pwdEncoder=new BCryptPasswordEncoder();
+		mb.setM_Pw(pwdEncoder.encode(mb.getM_Pw()));
 		System.out.println("===> Mybatis로 회원가입(signUp)");
 		String json = null;
-		Map<String,Integer> map = new HashMap<String, Integer>(); 
 		if(sDao.signUp(mb)) {
 			json = new Gson().toJson(1);
 		}else {

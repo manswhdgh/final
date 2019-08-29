@@ -14,7 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.proj.trade.service.AdminManagement;
 
-
+//어드민페이지 포워딩 컨트롤러
 @Controller
 public class AdminController {
 	

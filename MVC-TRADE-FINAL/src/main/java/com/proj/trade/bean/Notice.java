@@ -8,7 +8,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Alias("notice")
-@Getter @Setter
+
 public class Notice {
 	int nt_Num;
 	String nt_mId;

@@ -11,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.proj.trade.service.AuctionManagement;
 
+//경매, 역경매 포워딩 컨트롤러
 @Controller
 public class AuctionController {
 	@Autowired
@@ -18,7 +19,7 @@ public class AuctionController {
 	
 	ModelAndView mav;
 	
-	@RequestMapping(value = "/", method = RequestMethod.GET)
+	@RequestMapping(value = "/auctionFrm", method = RequestMethod.GET)
 	public String main(Locale locale, Model model) {
 		
 		System.out.println();

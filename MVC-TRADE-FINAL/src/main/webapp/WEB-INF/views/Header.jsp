@@ -5,9 +5,10 @@
 <head>
 <!-- <link rel="stylesheet" href="resources/css/bootstrap.min.css">
  -->
+
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
+ <script src="resources/js/jquery.serializeObject.js"></script>
 <!-- 합쳐지고 최소화된 최신 CSS -->
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
@@ -41,11 +42,12 @@ label {
 			<!-- // 로그인 안되었을 경우 - 로그인, 회원가입 버튼을 보여준다. -->
 			<c:if test="${sessionScope.sessionID==null}">
 				<button id="loginBtn" class="btn btn-primary"
-					onclick="changeView(1)">로그인</button>
+					 data-toggle="modal"
+					data-target="#LoginModal">로그인</button>
 				<!-- <button type="button" class="btn btn-primary" data-toggle="modal"
 					data-target="#myModal">회원가입</button> -->
 				<button type="button" class="btn btn-primary" data-toggle="modal"
-					data-target="#myModal">회원가입</button>
+					data-target="#SignUpModal">회원가입</button>
 			</c:if>
 
 			<!-- // 로그인 되었을 경우 - 로그아웃, 내정보 버튼을 보여준다. -->
@@ -70,6 +72,7 @@ label {
 		</p>
 	</div>
 	<jsp:include page="SignUpModal.jsp" />
+	<jsp:include page="LoginModal.jsp" />
 
 </body>
 

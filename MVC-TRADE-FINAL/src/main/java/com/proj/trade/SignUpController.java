@@ -14,8 +14,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.proj.trade.bean.Member;
+import com.proj.trade.dao.IMemberDao;
 import com.proj.trade.dao.SignUpDao;
+import com.proj.trade.service.MemberManagement;
 import com.proj.trade.service.SignUpManagement;
+
+//회원가입 및 로그인 포워딩 컨트롤러
 
 @Controller
 public class SignUpController {
@@ -23,9 +27,10 @@ public class SignUpController {
 	@Autowired
 	SignUpDao sDao;
 	
+
 	@Autowired
 	SignUpManagement sm;
-	
+
 	ModelAndView mav;
 	
 
