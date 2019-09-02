@@ -13,7 +13,7 @@
 	</select>
 	<select id="getMemberInfo" parameterType="String"
 		resultType="member">
-		SELECT * FROM MINFO WHERE M_ID=#{m_Id}
+		SELECT * FROM M WHERE M_ID=#{m_Id}
 	</select>
 	<select id="hashMapTest" parameterType="Map" resultType="int">
 		SELECT COUNT(*) FROM M WHERE M_ID=#{m_Id} AND M_PW=#{m_Pw}
