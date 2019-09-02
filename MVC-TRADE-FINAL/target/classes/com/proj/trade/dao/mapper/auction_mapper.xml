@@ -4,8 +4,8 @@
 <!DOCTYPE mapper PUBLIC "-http://mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"  >
 <mapper namespace="com.proj.trade.dao.AuctionDao">
 
-	<select id="getbList" resultType="aboard">
-		SELECT * FROM ABOARD
+	<select id="getInfoList" resultType="member">
+		SELECT * FROM MEMBER WHERE M_ID=#{m_Id}
 	
 	</select>
 </mapper>		

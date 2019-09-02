@@ -7,13 +7,34 @@
 		SELECT * FROM admpromolist_1 WHERE RONUM>=#{pNum}*10-9
 		AND RONUM<=#{pNum}*10
 		]]>
-		
+		 
 	</select>
 
 	<select id="getAdmPromoCount" resultType="int">
 		SELECT COUNT(*) FROM
 		admpromolist_1
-		
+		<!-- <trim prefix="WHERE" prefixOverrides="AND|OR">
+			<if test="keyword != null and keyword != '' ">
+				<if test="searchType=='b_Num'">
+					AND b_Num like CONCAT('%', #{keyword}, '%')
+				</if>
+				<if test="searchType=='b_Id'">
+					AND b_Id like CONCAT('%', #{keyword}, '%')
+				</if>
+				<if test="searchType=='b_Group'">
+					AND b_Group like CONCAT('%', #{keyword}, '%')
+				</if>
+			</if>
+		</trim> -->
+	</select>
+	
+	<select id="getadmPromoSearch" resultType="board">
+	select * from admPromoList_1
+	<if test="key != null">
+     where b_Num LIKE '%${key}%' OR
+     b_Id LIKE '%${key}%' OR
+     b_Group LIKE '%${key}%'
+     </if>
 	</select>
 
 
