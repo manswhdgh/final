@@ -38,6 +38,7 @@ public class MemberManagement {
 	public ModelAndView access(Member mb) {
 		System.out.println("서비스 : "+mb.getM_Id());
 		mav = new ModelAndView();
+		
 		String view = null;
 		BCryptPasswordEncoder pwdEncoder = new BCryptPasswordEncoder();
 		String pwdEncode = mDao.getSecurityPwd(mb.getM_Id());
@@ -53,17 +54,18 @@ public class MemberManagement {
 				System.out.println("멤버매니지먼트 세션ID불러오기 : "+session.getAttribute("id"));
 				mb = mDao.getMemberInfo(mb.getM_Id());
 				// mav.addObject("mb",mb);
+				System.out.println("마일리지 : "+mb.getM_Mile());
 				session.setAttribute("mb", mb);
 				view = "redirect:/"; // forward:url,POST-POST,GET,GET끼리만 가능
 				System.out.println("view=" + view);
 			} else {// 비번 오류 //redirect:url,POST,GET==>GET만 가능
 				System.out.println("비밀번호오류");
-				view = "Main";
+				view = "MainForm";
 				mav.addObject("check", 2);
 			}
 		} else {// 아이디 무존재
 			System.out.println("확인4");
-			view = "Main";
+			view = "MainForm";
 			mav.addObject("check", 3);// 로그인 실패
 		}
 		mav.setViewName(view);

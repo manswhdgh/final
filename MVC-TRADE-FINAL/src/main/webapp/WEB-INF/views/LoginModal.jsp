@@ -32,10 +32,7 @@
 							<Button class="btn btn-primary">로그인</Button>
 						</div>
 						</form>
-					</div>
-					
-						
-					
+					</div>	
 				</div>
 			</div>
 		</div>

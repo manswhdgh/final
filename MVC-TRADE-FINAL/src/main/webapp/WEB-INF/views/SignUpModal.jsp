@@ -109,8 +109,8 @@ $(document).ready(function(e){
 	            success : function(data) {
 	            	console.log(data);
 	            	 if(data == 1){
-	            		location.href = "/MainForm";
                         alert("회원가입성공");
+                        location.href = "./";
                     }else{
                         alert("회원가입실패");    
                     } 
