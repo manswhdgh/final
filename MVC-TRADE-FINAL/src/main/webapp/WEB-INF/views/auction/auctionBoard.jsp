@@ -125,7 +125,7 @@
 		</select>
 		</p>
 		<br>
-		<button class="button1" type="button">경매등록</button>
+		<button class="button1" type="button" onclick="window.location ='auctionContent'">경매등록</button>
 		<p class="serverstyle">서버
 		<select class="serversize">
 		<option>::선택::</option>
@@ -169,4 +169,7 @@
  	</div>
  	</center>
 </body>
+<script>
+ 
+</script>
 </html>

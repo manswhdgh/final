@@ -4,7 +4,6 @@ import java.util.List;
 
 import com.proj.trade.bean.Board;
 
-
 public interface IAdminDao {
 
 
@@ -12,9 +11,4 @@ public interface IAdminDao {
 
 	List<Board> getAdmPromoList(int pNum);
 
-	Board getadmPromoSearch();
-
-	
-
-	
 }

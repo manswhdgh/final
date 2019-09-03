@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--board_mapper.xml: 게시판관련 쿼리문 -->
+
+<!DOCTYPE mapper PUBLIC "-http://mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.proj.trade.dao.CsQNADao">
+
+
+<insert id="boardInsert" parameterType="Qna"
+		useGeneratedKeys="true" keyProperty="q_Register">
+		<selectKey keyProperty="q_Register" resultType="int" order="BEFORE">
+			SELECT QNA_SEQ.NEXTVAL FROM DUAL
+		</selectKey>
+		
+		
+		INSERT INTO QNA  (Q_Register,Q_TITLE,Q_CONTENT,Q_DATE,Q_STATUS,Q_MID)
+		VALUES(${q_Register},#{q_Title},#{q_Content},default,0,#{q_mid})
+		
+
+</insert>
+
+<insert id="fileInsert" parameterType="qfFile">
+		INSERT INTO QNAFILE VALUES(QNAFILE_SEQ.NEXTVALS ,#{qf_fName},#{qf_fPath})
+	</insert>
+
+
+</mapper>

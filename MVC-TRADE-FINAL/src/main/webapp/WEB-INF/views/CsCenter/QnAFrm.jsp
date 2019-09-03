@@ -111,7 +111,7 @@ text-align:center;
 <h1>고객센터 1대1문의하기</h1>
 <br>
 <br>
-
+<form action="boardWrite" enctype="multipart/form-data" method="post">
 <div class="c" >
 <table align="center">
   <tr>
@@ -125,15 +125,17 @@ text-align:center;
 <table align="center">
 	<tr>
 		<th height="20px"> 제목 </th>
-		<td><input type="text" size="120" style="border:none"></td>
+		<td><input type="text" size="120" style="border:none" id="q_Title" name="q_Title"></td>
 	</tr>
 	<tr>
 		<th> 문의내용 </th>
-		<td><textarea cols="120" rows="20" style="border:none"></textarea></td>
+		<td><textarea cols="120" rows="20" style="border:none"id="q_Content" name="q_Content"></textarea></td>
 	</tr>
 	<tr>
 		<th> 사진 </th>
-		<td><input type="file"></td>
+		<td><input type="file"  id="q_File" name="q_File" multiple
+					onchange="fileChk(this)" ><input type="hidden" value="0"
+					id="fileCheck" name="fileCheck" /></td>
 	</tr>
 </table>
 <br>
@@ -141,9 +143,10 @@ text-align:center;
 <input type="submit" value="등록">
 <input type="button" value="취소하기">
 </div>
-
+</form>
 
 </body>
 </html>
+
 
 

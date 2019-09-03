@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--member_mapper.xml: 회원관련 쿼리문 -->
+
+<!DOCTYPE mapper PUBLIC "-http://mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"  >
+
+<mapper namespace="com.proj.trade.dao.IMemberDao">
+	<select id="access" parameterType="member" resultType="Integer">
+		SELECT COUNT(*) FROM M WHERE M_ID=#{m_Id} AND M_PW=#{m_Pw}
+	</select>
+	<select id="getSecurityPwd" parameterType="String"
+		resultType="String">
+		SELECT M_PW FROM M WHERE M_ID=#{m_Id}
+	</select>
+	<select id="getMemberInfo" parameterType="String"
+		resultType="member">
+		SELECT * FROM M WHERE M_ID=#{m_Id}
+	</select>
+	<select id="hashMapTest" parameterType="Map" resultType="int">
+		SELECT COUNT(*) FROM M WHERE M_ID=#{m_Id} AND M_PW=#{m_Pw}
+	</select>
+	<select id="hashMapTest2" parameterType="String"
+		resultType="HashMap">
+		SELECT * FROM MINFO WHERE M_ID=#{m_Id}
+	</select>
+
+
+	<delete id="secession">
+		<![CDATA[
+			DELETE member
+			WHERE m_id=#{m_Id} and m_pw=#{m_Pw}
+		]]>
+	</delete>
+</mapper>

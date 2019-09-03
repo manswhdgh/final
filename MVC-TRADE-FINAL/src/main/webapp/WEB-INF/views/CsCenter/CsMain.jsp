@@ -26,28 +26,30 @@ h1{
 <body>
 <h1> 득템 고객센터 </h1>
 <hr>
-<table align=center width=500px; height=500px;>
+<form>
+<table align=center width=500px; height=500px; method=>
 <tr>
 	<td>
-	<input type="button"   style="width:150pt; height:150pt;"class="btn btn-primary" value="1대1문의"></button>
+	<input type="button"   style="width:150pt; height:150pt;"class="btn btn-primary" value="1대1문의" onclick="window.location ='CsCenter/QnAFrm'"></button>
 	</td>
 	<td>
-	<input type="button"   style="width:150pt; height:150pt;"class="btn btn-secondary" value="나의질문과답변"></button>
+	<input type="button"   style="width:150pt; height:150pt;"class="btn btn-secondary" value="나의질문과답변" onclick="window.location ='CsCenter/QnaList'"></button>
 	</td>
 	<td>
-	<input type="button"   style="width:150pt; height:150pt;"class="btn btn-success" value="신고하기"></button>
+	<input type="button"   style="width:150pt; height:150pt;"class="btn btn-success" value="신고하기" onclick="window.location ='CsCenter/ReportFrm'"></button>
 	</td>
 	</tr>
 	
 	<tr>
 	<td>
-	<input type="button"  style="width:150pt; height:150pt;"class="btn btn-info"  value="FAQ"></button>
+	<input type="button"  style="width:150pt; height:150pt;"class="btn btn-info"  value="FAQ" onclick="window.location ='CsCenter/FaqList'"></button>
 	</td>
 	<td>
 	<input type="button"  style="width:150pt; height:150pt;" class="btn btn-warning"value="실시간채팅상담"></button>
 	</td>
 	</tr>
 </table>
+</form>
 
 
 

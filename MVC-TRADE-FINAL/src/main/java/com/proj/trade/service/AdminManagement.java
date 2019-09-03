@@ -24,7 +24,7 @@ public class AdminManagement {
 	public ModelAndView getAdmPromoList(Integer pageNum) {
 
 		mav = new ModelAndView();
-		String view = null; 
+		String view = null;
 		List<Board> admPromoList = null;
 
 		int pNum = (pageNum == null) ? 1 : pageNum;
@@ -50,17 +50,6 @@ public class AdminManagement {
 		Paging paging = new Paging(maxNum, pNum, listCount, pageCount, boardName); // 생성자 순서 듕요함 ㅇ_ㅇ
 
 		return paging.makeHtmlPaging();
-	}
-	
-	public ModelAndView getSearchList(String key) {
-		String view = null;
-		Board board=aDao.getadmPromoSearch();
-		mav.addObject("search", board);
-		view = "admPromoSearch";
-		mav.setViewName(view);
-		
-		return mav;
-                                                                                                         
 	}
 	
 
