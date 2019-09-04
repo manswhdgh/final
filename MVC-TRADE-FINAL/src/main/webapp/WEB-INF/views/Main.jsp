@@ -73,10 +73,10 @@ table, th, td {
 		<button style="width: 329px; height: 150px;" class="btn btn-primary">1.구매하기/판매하기</button>
 	</div>
 	<div id="btn2">
-		<button style="width: 200px; height: 150px;" class="btn btn-success" onclick="window.location ='auction/auctionBoard'">2.경매/역경매</button>
+		<button style="width: 200px; height: 150px;" class="btn btn-success" onclick="location.href ='./auction/auctionBoard'">2.경매/역경매</button>
 	</div>
 	<div id="btn3">
-		<button onclick="window.location ='MyInfo'"
+		<button onclick="location.href ='./MyInfo'"
 			style="width: 160px; height: 150px;" class="btn btn-info">3.내
 			정보</button>
 	</div>
@@ -84,7 +84,7 @@ table, th, td {
 		<button style="width: 160px; height: 150px;" class="btn btn-danger">4.충전</button>
 	</div>
 	<div id="btn5">
-		<button style="width: 200px; height: 150px;" class="btn btn-warning" onclick="window.location ='CsCenter/CsMain'">5.고객센터</button>
+		<button style="width: 200px; height: 150px;" class="btn btn-warning" onclick="location.href ='./CsCenter/CsMain'">5.고객센터</button>
 	</div>
 	 
 	<div class="row" id = "righttable">

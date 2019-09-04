@@ -20,7 +20,7 @@
 	</select>
 	<select id="hashMapTest2" parameterType="String"
 		resultType="HashMap">
-		SELECT * FROM MINFO WHERE M_ID=#{m_Id}
+		SELECT * FROM M WHERE M_ID=#{m_Id}
 	</select>
 
 

@@ -1,6 +1,7 @@
 package com.proj.trade;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,13 +25,13 @@ public class LoginController {
 	HttpSession session;
 	//濡쒓렇�씤
 	@RequestMapping(value = "/access", method = RequestMethod.POST)
-	public ModelAndView access(Member mb, HttpServletRequest req) {
+	public ModelAndView access(Member mb, HttpServletRequest req, HttpServletResponse response) {
 		System.out.println(mb.getM_Id());
 		System.out.println(mb.getM_Pw());
 		mav = mm.access(mb);
 		//session = req.getSession();
 		System.out.println("id= : " + session.getAttribute("id"));
-		
+		mav.addObject("logmsg", session.getAttribute("id") + " 님 환영합니다.");
 		return mav;
 	}
 		

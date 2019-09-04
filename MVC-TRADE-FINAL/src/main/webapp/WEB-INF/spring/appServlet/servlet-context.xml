@@ -130,11 +130,13 @@
 	<!-- 인터셉터(갸로채기) 설정 -->
 	<interceptors>
 		<interceptor>
-			<mapping path="/*" />
+			<mapping path="/*" /><!-- 세션 인터셉트 -->
+			<mapping path="/*/*"/><!-- 옥션 고객센터 인터셉트 -->
 			<exclude-mapping path="/" />
-			<exclude-mapping path="/signUp.do" />
-			<exclude-mapping path="/access" />
-			<exclude-mapping path="/idCheck.do" />
+			<exclude-mapping path="/signUp.do" /><!-- 회원가입 -->
+			<exclude-mapping path="/access" /><!-- 로그인 -->
+			<exclude-mapping path="/idCheck.do" /><!-- 아이디 중복 체크 -->
+			<exclude-mapping path="/logout" /><!-- 로그아웃 -->
 			<beans:bean
 				class="com.proj.trade.userClass.SessionInterceptor" />
 		</interceptor>

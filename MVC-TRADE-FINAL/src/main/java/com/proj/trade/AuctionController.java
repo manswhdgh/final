@@ -35,7 +35,7 @@ public class AuctionController {
 
 	@RequestMapping(value = "/auction/auctionBoard")
 	public ModelAndView auctionboard(Aboard aboard, HttpServletRequest req) {
-		
+		session = req.getSession();
 		mav = atm.boardList(aboard, req);
 
 		return mav;

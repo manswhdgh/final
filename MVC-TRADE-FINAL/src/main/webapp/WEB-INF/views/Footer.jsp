@@ -15,7 +15,12 @@
 </c:when>
 <c:otherwise>
 <script>
-	alert("${sessionScope.id}님 환영합니다");
+    $(function(){
+        var responseMessage = "<c:out value="${logmsg}" />";
+        if(responseMessage != ""){
+            alert(responseMessage);
+        }
+    }) 
 </script>
 <br>
 	"${sessionScope.id}" 님 환영합니다.
