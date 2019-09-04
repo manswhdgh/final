@@ -41,4 +41,9 @@ public class LoginController {
 		mav.setViewName("redirect:/");
 		return mav;
 	}
+	@RequestMapping(value = "/egg")
+	public String egg() { 
+		
+		return "egg";
+	}
 }

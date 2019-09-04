@@ -137,6 +137,7 @@
 			<exclude-mapping path="/access" /><!-- 로그인 -->
 			<exclude-mapping path="/idCheck.do" /><!-- 아이디 중복 체크 -->
 			<exclude-mapping path="/logout" /><!-- 로그아웃 -->
+			<exclude-mapping path="/egg" /><!-- egg -->
 			<beans:bean
 				class="com.proj.trade.userClass.SessionInterceptor" />
 		</interceptor>

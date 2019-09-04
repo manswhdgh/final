@@ -75,7 +75,7 @@ label {
 		</c:if>
 
 		<button id="joinBtn" class="btn btn-info" onclick="location.href='./CsCenter/CsMain'">고객센터</button>
-		<button id="joinBtn" class="btn btn-info" onclick="changeView(7)">실시간채팅</button>
+		<button id="joinBtn" class="btn btn-info" onclick="location.href='./egg'">실시간채팅</button>
 
 		<!--  관리자 로그인 -->
 		<c:if test="${sessionScope.id != null && sessionScope.id =='master'}">
