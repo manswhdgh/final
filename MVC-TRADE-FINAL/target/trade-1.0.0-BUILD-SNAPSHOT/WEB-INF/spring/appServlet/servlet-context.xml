@@ -78,10 +78,17 @@
 			name="mapperInterface" />
 	</beans:bean>
 	<beans:bean
-		class="org.mybatis.spring.mapper.MapperFactoryBean" id="uDao">
+		class="org.mybatis.spring.mapper.MapperFactoryBean" id="sDao">
 		<beans:property name="sqlSessionFactory"
 			ref="sqlSessionFactory" />
-		<beans:property value="com.proj.trade.dao.IUserDao"
+		<beans:property value="com.proj.trade.dao.SignUpDao"
+			name="mapperInterface" />
+	</beans:bean>
+	<beans:bean
+		class="org.mybatis.spring.mapper.MapperFactoryBean" id="atDao">
+		<beans:property name="sqlSessionFactory"
+			ref="sqlSessionFactory" />
+		<beans:property value="com.proj.trade.dao.AuctionDao"
 			name="mapperInterface" />
 	</beans:bean>
 	<beans:bean
@@ -91,15 +98,6 @@
 		<beans:property value="com.proj.trade.dao.IAdminDao"
 			name="mapperInterface" />
 	</beans:bean>
-	<beans:bean
-		class="org.mybatis.spring.mapper.MapperFactoryBean" id="sDao">
-		<beans:property name="sqlSessionFactory"
-			ref="sqlSessionFactory" />
-		<beans:property value="com.proj.trade.dao.SignUpDao"
-			name="mapperInterface" />
-	</beans:bean>
-	
-	
 	
 	<!-- 파일 첨부(Multipart Resolver 설정: form태그가 enctype="multipart/form-data"인 
 		경우 서버의 Bean으로 전달해줌. id="multipartResolver" 라고 반드시 정확하게 명시해야 됨 -->
@@ -116,14 +114,16 @@
 	</beans:bean>
 
 	<!-- 인터셉터(갸로채기) 설정 -->
-	<!-- <interceptors>
+	<interceptors>
 		<interceptor>
 			<mapping path="/*" />
 			<exclude-mapping path="/" />
 			<exclude-mapping path="/signUp.do" />
+			<exclude-mapping path="/access" />
 			<exclude-mapping path="/idCheck.do" />
+			<exclude-mapping path="/admPromoSearch" />
 			<beans:bean
 				class="com.proj.trade.userClass.SessionInterceptor" />
 		</interceptor>
-</interceptors> -->
+</interceptors>
 </beans:beans>

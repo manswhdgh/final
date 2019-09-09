@@ -1,38 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--member_mapper.xml: 회원관련 쿼리문-->
+<!--member_mapper.xml: 회원관련 쿼리문 -->
 
 <!DOCTYPE mapper PUBLIC "-http://mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"  >
 
-<mapper namespace="member_mapper">
-	<!-- <select id="loginCheck" resultType="int">
-		<![CDATA[
-			SELECT count(*) FROM member
-			WHERE m_id = #{m_Id} AND m_Pw = #{m_Pw}
-		]]>
+<mapper namespace="com.proj.trade.dao.IMemberDao">
+	<select id="access" parameterType="member" resultType="Integer">
+		SELECT COUNT(*) FROM M WHERE M_ID=#{m_Id} AND M_PW=#{m_Pw}
 	</select>
-	
-	<select id="idCheck" resultType="int">
-		<![CDATA[
-			SELECT count(*) FROM member
-			WHERE m_id = #{m_Id}
-		]]>
+	<select id="getSecurityPwd" parameterType="String"
+		resultType="String">
+		SELECT M_PW FROM M WHERE M_ID=#{m_Id}
 	</select>
-	
-	<select id="signUp">
-		<![CDATA[
-			insert into member(m_id, m_num, m_name, m_pw, 
-			m_email, m_phone, m_addr, m_group, m_date, 
-			m_certification, m_tcount, m_bank, m_baddr, m_mile)
-			values (#{m_Id},MNUM_SEQ.NEXTVAL, #{m_Name}, #{m_Pw}
-			, #{m_Email}, #{m_Phone}, #{m_Addr}, #{m_Group}, 
-			SYSDATE, default, default, '없음','없음',default)
-		]]>
+	<select id="getMemberInfo" parameterType="String"
+		resultType="member">
+		SELECT * FROM M WHERE M_ID=#{m_Id}
 	</select>
-	
+	<select id="hashMapTest" parameterType="Map" resultType="int">
+		SELECT COUNT(*) FROM M WHERE M_ID=#{m_Id} AND M_PW=#{m_Pw}
+	</select>
+	<select id="hashMapTest2" parameterType="String"
+		resultType="HashMap">
+		SELECT * FROM MINFO WHERE M_ID=#{m_Id}
+	</select>
+
+
 	<delete id="secession">
 		<![CDATA[
 			DELETE member
 			WHERE m_id=#{m_Id} and m_pw=#{m_Pw}
 		]]>
-	</delete> -->
+	</delete>
 </mapper>

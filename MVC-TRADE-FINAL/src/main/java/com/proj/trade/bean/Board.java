@@ -16,15 +16,15 @@ public class Board {
 	private String m_Name;
 	private Timestamp b_Date; //String, Timestamp
 	private int bview;
-	private int b_group;
+	private int b_Group;
 	public int getB_Num() {
 		return b_Num;
 	}
-	public int getB_group() {
-		return b_group;
+	public int getB_Group() {
+		return b_Group;
 	}
-	public void setB_group(int b_group) {
-		this.b_group = b_group;
+	public void setB_Group(int b_Group) {
+		this.b_Group = b_Group;
 	}
 	public void setB_Num(int b_Num) {
 		this.b_Num = b_Num;

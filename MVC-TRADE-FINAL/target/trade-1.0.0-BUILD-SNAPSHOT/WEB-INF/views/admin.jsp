@@ -28,7 +28,7 @@
 
 </head>
 <body>
-<style>
+	<style>
 .menu {
 	cursor: pointer;
 	display: block;
@@ -43,23 +43,19 @@ ul {
 }
 
 #menubar {
-	position :relative;
-	top : 100px;
+	position: relative;
+	top: 100px;
 	height: 300px;
 	float: left;
 	left: 0px;
 	width: 185px;
 	background: pink;
-	
-	}
-	
-#menubar ul {
-margin: 0 auto;
-background: pink;
-	
 }
 
-
+#menubar ul {
+	margin: 0 auto;
+	background: pink;
+}
 
 html, body {
 	height: 100%;
@@ -110,26 +106,30 @@ html, body {
 	white-space: normal;
 	overflow: scroll
 }
-#monitor{
+
+#monitor {
 	position: relative;
 	top: 100px;
 	left: 200px;
+	width: 50%;
 }
 </style>
 <body>
 	<div id="menubar">
-		<ul class= "main">
+		<ul class="main">
 			<li class="menu"><h1>MENU</h1></li>
 			<li class="menu"><a><h2>회원관리</h2></a>
 				<ul class="hide">
 					<a href="./admPromo"><li id="sellerRegistation"><h3>판매자신청</h3></li></a>
-					<a href="./addBanList"><li id="blackList"><h3>블랙리스트</h3></li></a>
+					<a href="./admBanList"><li id="blackList"><h3>블랙리스트</h3></li></a>
 				</ul></li>
 
-			<li class="menu"><a><h2>거래관리<h2></h2></a>
-			<ul class="hide">
+			<li class="menu"><a><h2>
+						거래관리
+						</h2></a>
+				<ul class="hide">
 					<a href="./admTradeListStatus"><li id="tradeService"><h3>거래관리</h3></li></a>
-			</ul></li>
+				</ul></li>
 			<li class="menu"><a><h2>운영관리</h2></a>
 				<ul class="hide">
 					<a href="./admRecord"><li id="salesStatus"><h3>매출현황</h3></li></a>
@@ -145,9 +145,9 @@ html, body {
 				</ul></li>
 		</ul>
 	</div>
-	
-	<div id="monitor" >
-	<h1>힘세고 강한 아침 안녕 내 이름은 왈도 !</h1>
+
+	<div id="monitor">
+		<h1>힘세고 강한 아침 안녕 내 이름은 왈도 !</h1>
 	</div>
 	<script>
 		// html dom 이 다 로딩된 후 실행된다.

@@ -4,28 +4,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<!-- <link rel="stylesheet" href="resources/css/bootstrap.min.css">
- -->
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-<!-- 합쳐지고 최소화된 최신 CSS -->
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-
-<!-- 부가적인 테마 -->
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-
-<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-<script src="resources/js/jquery.serializeObject.js"></script>
 </head>
 <body>
 	<div class="container">
 		<!-- 모달 팝업 -->
-		<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+		<div class="modal fade" id="SignUpModal" tabindex="-1" role="dialog"
 			aria-labelledby="myModalLabel" aria-hidden="true">
 			<div class="modal-dialog">
 				<div class="modal-content">
@@ -83,38 +66,11 @@
 
 <script>
 $(document).ready(function(e){
-	/* var idx = false;
-	$('#signUp').click(function() {
-		if ($.trim($('#m_Id').val()) == '') {
-			alert("아이디 입력.");
-			$('#m_Id').focus();
-			return;
-		} else if($.trim($('#m_Pw').val()) == '') {
-			alert("패스워드 입력.");
-			$('#m_Pw').focus();
-			return;
-		}
-		//패스워드 확인
-		else if ($('#m_Pw').val() != $('#passwdCheck').val()) {
-			alert('패스워드가 다릅니다.');
-			$('#m_Pw').focus();
-			return;
-		}
-		if (idx == false) {
-			alert("아이디 중복체크를 해주세요.");
-			return;
-		} else {
-			$('#signFrm').submit();
-		}
-	});
-	 */
 	//아이디 체크여부 확인 (아이디 중복일 경우 = 0 , 중복이 아닐경우 = 1 )
 	var idck = 0;
 	$(function check() {
 	    //check 버튼을 클릭했을 때 
 	    $("#check").click(function() {
-	        
-	        //userid 를 param.
 	        var m_Id =  $("#m_Id").val(); 
 	        console.log(m_Id);
 	        $.ajax({
@@ -123,7 +79,6 @@ $(document).ready(function(e){
 	            data : {"m_Id" : $('#m_Id').val()},
 	            url : "idCheck.do",
 	            dataType : "json",
-//	            contentType: "application/json; charset=UTF-8",
 	            success : function(data) {
 	                if (data.cnt > 0) {
 	                    alert("아이디가 존재합니다. 다른 아이디를 입력해주세요.");
@@ -153,12 +108,9 @@ $(document).ready(function(e){
 	            dataType : "json",
 	            success : function(data) {
 	            	console.log(data);
-	            	alert("data");
-	            	/* setTimeout(function() {
-	            		alert(data.data);
-	            		}, 5000); */
 	            	 if(data == 1){
                         alert("회원가입성공");
+                        location.href = "./";
                     }else{
                         alert("회원가입실패");    
                     } 

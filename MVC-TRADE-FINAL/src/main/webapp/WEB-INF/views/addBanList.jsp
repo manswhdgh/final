@@ -1,89 +1,167 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<img src="logo.jpg" alt="로고" width="100px" height="100px" align="left" />
+<script>
+	function logout() {
+		$('#logoutFrm').submit(); //서버로 전송
+	}
+</script>
+
+<div align="right">
+	<form id="logoutFrm" action="logout" method="post">
+		<a href="javascript:logout()">로그아웃</a>
+	</form>
+</div>
 <style>
-#addBanList {
+menu {
+	cursor: pointer;
+	display: block;
+}
+
+.menu .hide {
+	display: none;
+}
+
+ul {
+	list-style: none;
+}
+
+#menubar {
 	position: relative;
 	top: 100px;
-	left: 200px;
+	height: 300px;
+	float: left;
+	left: 0px;
+	width: 185px;
+	background: pink;
 }
 
-#footer {
+#menubar ul {
 	margin: 0 auto;
+	background: pink;
 }
+
+html, body {
+	height: 100%;
+	margin: 0
+}
+
+#addBanList {
+	position: relative; 
+	top : 100px; 
+	left : 50px; 
+	width : 50%; 
+	float : left;
+	
+}
+
 </style>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 <body>
+<body>
+	<div id="menubar">
+		<ul class="main">
+			<li class="menu"><h1>MENU</h1></li>
+			<li class="menu"><a><h2>회원관리</h2></a>
+				<ul class="hide">
+					<a href="./admPromo"><li id="sellerRegistation"><h3>판매자신청</h3></li></a>
+					<a href="./addBanList"><li id="blackList"><h3>블랙리스트</h3></li></a>
+				</ul></li>
+
+			<li class="menu"><a><h2>거래관리</h2></a>
+				<ul class="hide">
+					<a href="./admTradeListStatus"><li id="tradeService"><h3>거래관리</h3></li></a>
+				</ul></li>
+			<li class="menu"><a><h2>운영관리</h2></a>
+				<ul class="hide">
+					<a href="./admRecord"><li id="salesStatus"><h3>매출현황</h3></li></a>
+					<a href="./newbieList"><li id="newMember"><h3>신규 회원수</h3></li></a>
+					<a href="./notiBoard"><li id="notice"><h3>공지사항</h3></li></a>
+				</ul></li>
+			<li class="menu"><a><h2>고객센터</h2></a>
+				<ul class="hide">
+					<a href="./inquiry"><li id="inquiry"><h3>1:1문의</h3></li></a>
+					<a href="./livechatList"><li id="liveChat"><h3>실시간채팅</h3></li></a>
+					<a href="./boardReport"><li id="report"><h3>신고</h3></li></a>
+					<a href="./viewQna"><li id="faq"><h3>FAQ</h3></li></a>
+				</ul></li>
+		</ul>
+	</div>
 	<div id="addBanList">
-		<h1>블랙리스트</h1>
-		<table>
-			<tr bgcolor="pink" height="30">
-				<th width="100">글번호</th>
-				<th width="200">블랙 아이디</th>
-				<th width="200">신고내용</th>
-				<th width="100">차단횟수</th>
-				<th width="100">차단해제</th>
-			</tr>
-			<tr bgcolor="skyblue" height="30">
-				<th width="100">1</th>
-				<th width="200">아무개1</th>
-				<th width="200">이새끼꾼임</th>
-				<th width="100">2회</th>
-				<td align="center"><input type="button" id="ban_ckeck"
-					width="100" value="차단"></td>
-			</tr>
-			<tr bgcolor="skyblue" height="30">
-				<th width="100">2</th>
-				<th width="200">아무개2</th>
-				<th width="200">이새끼병신임</th>
-				<th width="100">2회</th>
-				<td align="center"><input type="button" id="ban_ckeck"
-					width="100" value="차단"></td>
-			</tr>
-			<tr bgcolor="skyblue" height="30">
-				<th width="100">3</th>
-				<th width="200">아무개3</th>
-				<th width="200">김진섭같은새끼임</th>
-				<th width="100">100회</th>
-				<td align="center"><input type="button" id="ban_ckeck"
-					width="100" value="차단"></td>
-			</tr>
-			<tr bgcolor="skyblue" height="30">
-				<th width="100">4</th>
-				<th width="200">김진섭</th>
-				<th width="200">혼모노새끼의등장</th>
-				<th width="100">500</th>
-				<td align="center"><input type="button" id="ban_ckeck"
-					width="100" value="차단"></td>
-			</tr>
-
-		</table>
-		<br>
-		<hr>
-		<br>
-		<div align="center">${paging}</div>
-
-		<div id="articleView_layer">
-			<div id="bg_layer"></div>
-			<div id="contents_layer"></div>
-		</div>
-
-		<div id="footer">
-			<h5>페이징자리입니다</h5>
+		<div id="a">
+			<h1>블랙리스트 접수 내역</h1>
 			<table>
-				<tr bgcolor="gray" height="10">
-					<th width="100">아이디/내용</th>
-					<th width="400">검색창</th>
-					<td align="center"><input type="button" id="ban_search"
-						width="100" value="검색"></td>
+				<tr bgcolor="pink" height="30">
+					<th width="100">글번호</th>
+					<th width="200">블랙 아이디</th>
+					<th width="200">신고내용</th>
+					<th width="100">신고일</th>
+					<th width="100">차단</th>
 				</tr>
+			<c:if test="${AdmBanList.isEmpty()}">
+					<tr>
+						<td colspan="4"><h3 style="text-align: center;">접수된 신청이
+								없습니다.</h3></td>
+					</tr>
+					
+				</c:if>
+				<c:if test='${!AdmBanList.isEmpty()}'>
+					<c:forEach var="board" items="${AdmBanList}">
+						<tr height="25">
+							<td align="center">${board.b_Num}</td>
+							<td align="center">${board.b_Id}</td>
+							<td align="center">${board.b_Contents}</td>
+							<td align="center">${board.b_Date}</td>
+							<td align="center"><input type="button" id="ban_ckeck"
+						width="100" value="차단"></td>
+						</tr>
+					</c:forEach>
+				</c:if>
+			
 			</table>
+			<br>
+			<hr>
+			<div id="articleView_layer">
+				<div id="bg_layer"></div>
+				<div id="contents_layer"></div>
+			</div>
+			<div align="center">${paging}</div>
+			<hr>
+			<!-- search{s} -->
+			<form id="frm">
+				<input type="text" name="search" id="key">
+				<button id="search">검색</button>
+			</form>
 		</div>
+
 	</div>
 
+
 </body>
+<script>
+	// html dom 이 다 로딩된 후 실행된다.
+	$(document).ready(function() {
+		// memu 클래스 바로 하위에 있는 a 태그를 클릭했을때
+		$(".menu>a").click(function() {
+			var submenu = $(this).next("ul");
+
+			// submenu 가 화면상에 보일때는 위로 접고 아니면 아래로 보드랍게 펼치기
+			if (submenu.is(":visible")) {
+				submenu.slideUp();
+			} else {
+				submenu.slideDown();
+			}
+		});
+	});
+</script>
+<!-- 메뉴바스크립트 끝 -->
 </html>
