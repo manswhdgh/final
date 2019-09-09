@@ -171,7 +171,7 @@
 			<table>
 				<tr>
 					<td>이름[닉네임] :</td>
-					<td>${UserInfo.m_Id}</td>
+					<td>${userinfo.m_Id}씨발</td>
 				</tr>
 			</table>
 		</div>
@@ -180,7 +180,7 @@
 			<table>
 				<tr>
 					<td>등급 :</td>
-					<td>${UserInfo.g_Name}</td>
+					<td>${userinfo.g_Name}</td>
 				</tr>
 			</table>
 		</div>
@@ -189,7 +189,7 @@
 			<table>
 				<tr>
 					<td>진행중인 거래 :</td>
-					<td>${UserInfo.m_tCount}</td>
+					<td>${userinfo.m_tCount}</td>
 				</tr>
 			</table>
 		</div>
@@ -197,7 +197,7 @@
 			<table>
 				<tr>
 					<th>진행중인 경매 :</th>
-					<td>${UserInfo.m_tCount}</td>
+					<td>${userinfo.m_tCount}</td>
 				</tr>
 			</table>
 		</div>
@@ -207,7 +207,7 @@
 					<th>마일리지 :</th>
 				</tr>
 				<tr>
-					<td>${UserInfo.m_Mile}</td>
+					<td>${userinfo.m_Mile}</td>
 				</tr>
 			</table>
 		</div>
@@ -218,7 +218,7 @@
 			<table>
 				<tr>
 					<th>내 은행 :</th>
-					<td>${UserInfo.m_Bank}</td>
+					<td>${userinfo.m_Bank}</td>
 				</tr>
 			</table>
 		</div>
@@ -226,7 +226,7 @@
 			<table>
 				<tr>
 					<th>계좌 번호 :</th>
-					<td>${UserInfo.m_bAddr}</td>
+					<td>${userinfo.m_bAddr}</td>
 				</tr>
 			</table>
 		</div>

@@ -18,9 +18,24 @@
 
 </insert>
 
-<insert id="fileInsert" parameterType="qfFile">
-		INSERT INTO QNAFILE VALUES(QNAFILE_SEQ.NEXTVALS ,#{qf_fName},#{qf_fPath})
+<insert id="fileInsert">
+		INSERT INTO QNAFILE(QF_FNAME,QF_FPATH,QF_REGISTER) VALUES(#{oriFileName},#{sysFileName},#{q_Register})
 	</insert>
-
+	
+<!-- <select id="QnaList" resultType="qna">
+	
+			SELECT * FROM QNA order by Q_DATE DESC
+	
+	</select> -->
+<select id="QnaList" parameterType="int" resultType="qna">
+<![CDATA[ 
+		SELECT * FROM QNA_1  WHERE Q_RONUM >= #{qpNum}*5-4 AND 
+		Q_RONUM<=#{qpNum}*5  
+		 ]]>
+</select>
+<select id="getBoardCount" resultType="int">
+		SELECT COUNT(*) FROM QNA_1 
+</select>
+ 
 
 </mapper>

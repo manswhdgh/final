@@ -1,5 +1,6 @@
 package com.proj.trade.dao;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.web.multipart.MultipartHttpServletRequest;
@@ -12,11 +13,15 @@ public interface CsQNADao {
 
 	boolean fileInsert(Map<String, String> fMap);
 
+	List<Qna> QnaList(int pNum);
+
+	int getBoardCount();
 
 
-	/*
-	 * Qna boardInsert(Qna qna);
-	 */
+    
+
+
+
 
 
 

@@ -2,55 +2,19 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.proj.trade.dao.IAdminDao">
-
 	<select id="getAdmPromoList" resultType="board">
 			<![CDATA[
 		SELECT * FROM admpromolist_1 WHERE RONUM>=#{pNum}*10-9
 		AND RONUM<=#{pNum}*10
 		]]>
-
+		
 	</select>
 
 	<select id="getAdmPromoCount" resultType="int">
 		SELECT COUNT(*) FROM
 		admpromolist_1
-		<!-- <trim prefix="WHERE" prefixOverrides="AND|OR"> <if test="keyword != 
-			null and keyword != '' "> <if test="searchType=='b_Num'"> AND b_Num like 
-			CONCAT('%', #{keyword}, '%') </if> <if test="searchType=='b_Id'"> AND b_Id 
-			like CONCAT('%', #{keyword}, '%') </if> <if test="searchType=='b_Group'"> 
-			AND b_Group like CONCAT('%', #{keyword}, '%') </if> </if> </trim> -->
+		
 	</select>
 
-	<select id="getAdmPromoSearch" parameterType="String"
-		resultType="board">
-		select * from admPromoList_1
-		<if test="key1 != null">
-			where b_Num LIKE '%'||#{key1}||'%' OR
-			b_Id LIKE '%'||#{key1}||'%' OR
-			b_Group LIKE '%'||#{key1}||'%'
-		</if> 
-	</select>
-
-	<select id="getAdmBanList" resultType="board">
-			<![CDATA[
-		SELECT * FROM admbanlist_1 WHERE RONUM>=#{pNum}*10-9
-		AND RONUM<=#{pNum}*10
-		]]>
-
-	</select>
-
-	<select id="getAdmBanCount" resultType="int">
-		SELECT COUNT(*) FROM
-		admbanlist_1
-	</select>
-
-	<select id="getadmBanSearchList" resultType="board">
-		select * from admbanlist_1
-		<if test="val != null">
-			where b_Num LIKE '%${val}%' OR
-			b_Id LIKE '%${val}%' OR
-			b_Contents LIKE '%${val}%'
-		</if>
-	</select>
 
 </mapper>

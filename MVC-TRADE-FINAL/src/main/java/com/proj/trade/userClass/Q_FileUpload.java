@@ -8,6 +8,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.URLEncoder;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -26,30 +27,25 @@ public class Q_FileUpload {
 	@Autowired
 	private CsQNADao cqDao;
 
-	public boolean fileUp(MultipartHttpServletRequest multi, int q_Register) {
+	public boolean fileUp(MultipartHttpServletRequest q_File, int q_Register) {
 			System.out.println("fileUp");
 			// 1.이클립스의 물리적 저장경로 찾기
-			String root = multi.getSession().getServletContext().getRealPath("/");
+			String root = q_File.getSession().getServletContext().getRealPath("/");
 			System.out.println("root=" + root);
-			String path = root + "resources/upload/";
+			String path = root + "resources/QNAUpload/";
 			// 2.폴더 생성을 꼭 할것...
 			File dir = new File(path);
 			if (!dir.isDirectory()) { // upload폴더 없다면
-				dir.mkdirs(); // upload폴더 생성
+				dir.mkdir(); // upload폴더 생성
 			}
-			// 3.파일을 가져오기-파일태그 1개일때
-			// Iterator<String> files=multi.getFileNames(); //파일태그가 2개이상일때
-
+			
 			Map<String, String> fMap = new HashMap<String, String>();
 			fMap.put("q_Register", String.valueOf(q_Register));
-			List<MultipartFile> fList = multi.getFiles("files");
+			List<MultipartFile> fList = q_File.getFiles("q_File");
 			boolean f = false;
-			for (int i = 0; i < fList.size(); i++) {
-
-				/*
-				 * while(files.hasNext()){ String fileTagName=files.next();
-				 * System.out.println("fileTag="+fileTagName); //파일 메모리에 저장
-				 */ MultipartFile mf = fList.get(i); // 실제파일
+			for(int i = 0; i < fList.size(); i++) {
+				// 파일 메모리에 저장
+				MultipartFile mf = fList.get(i); // 순차적으로 파일정보를 저장
 				String oriFileName = mf.getOriginalFilename(); // a.txt
 				fMap.put("oriFileName", oriFileName);
 				// 4.시스템파일이름 생성 a.txt ==>112323242424.txt
@@ -57,7 +53,6 @@ public class Q_FileUpload {
 						+ oriFileName.substring(oriFileName.lastIndexOf(".") + 1);
 				fMap.put("sysFileName", sysFileName);
 
-				// 5.메모리->실제 파일 업로드
 
 				try {
 					mf.transferTo(new File(path + sysFileName));
