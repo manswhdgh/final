@@ -25,7 +25,7 @@ public class AuctionController {
 	ModelAndView mav;
 	HttpSession session;
 
-	@RequestMapping(value = "/auction/auctionContent")
+	@RequestMapping(value = "/auctionContent")
 	public ModelAndView getContents(String atinfo, HttpServletRequest req) {
 		session = req.getSession();
 		mav = atm.getContents(atinfo, req);
@@ -33,7 +33,7 @@ public class AuctionController {
 		return mav;
 	}
 
-	@RequestMapping(value = "/auction/auctionBoard")
+	@RequestMapping(value = "/auctionBoard")
 	public ModelAndView auctionboard(Aboard aboard, HttpServletRequest req) {
 		session = req.getSession();
 		mav = atm.boardList(aboard, req);

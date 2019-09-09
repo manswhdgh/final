@@ -32,7 +32,7 @@ public class CenterController {
 	HttpSession session;
 	ModelAndView mav;
 
-	@RequestMapping(value = "/CsCenter/CsMain")
+	@RequestMapping(value = "/CsMain")
 	public ModelAndView Csmain(HttpServletRequest req) {
 		session = req.getSession();
 		mav = new ModelAndView();

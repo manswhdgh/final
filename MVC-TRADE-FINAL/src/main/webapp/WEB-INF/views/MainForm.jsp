@@ -38,7 +38,9 @@
 	background-color: #F5F5F5;
 }
 </style>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/sweetalert2@8.17.1/dist/sweetalert2.min.css" />
 
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8.17.1/dist/sweetalert2.min.js"></script>
 </head>
 <body>
 	<div id="wrap">

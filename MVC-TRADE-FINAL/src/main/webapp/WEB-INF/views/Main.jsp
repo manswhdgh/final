@@ -1,11 +1,9 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page session="false"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <html>
 <head>
- <script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 
 <!-- 합쳐지고 최소화된 최신 CSS -->
 <link rel="stylesheet"
@@ -50,8 +48,8 @@
 
 #righttable {
 	position: relative;
-	top : -280px;
-	left : -70px;
+	top: -280px;
+	left: -70px;
 }
 
 table {
@@ -64,34 +62,37 @@ table {
 table, th, td {
 	border: 1px solid #bcbcbc;
 }
-
-
 </style>
 </head>
+
 <body>
 	<div id="btn1">
-		<button style="width: 329px; height: 150px;" class="btn btn-primary">1.구매하기/판매하기</button>
+		<button style="width: 329px; height: 150px;" class="btn btn-primary"
+			id="onbtn">1.구매하기/판매하기</button>
 	</div>
 	<div id="btn2">
-		<button style="width: 200px; height: 150px;" class="btn btn-success" onclick="location.href ='./auction/auctionBoard'">2.경매/역경매</button>
+		<button style="width: 200px; height: 150px;" class="btn btn-success"
+			onclick="location.href ='./auctionBoard'" id="onbtn">2.경매/역경매</button>
 	</div>
 	<div id="btn3">
 		<button onclick="location.href ='./MyInfo'"
-			style="width: 160px; height: 150px;" class="btn btn-info">3.내
+			style="width: 160px; height: 150px;" class="btn btn-info" id="onbtn">3.내
 			정보</button>
 	</div>
 	<div id="btn4">
-		<button style="width: 160px; height: 150px;" class="btn btn-danger">4.충전</button>
+		<button style="width: 160px; height: 150px;" class="btn btn-danger"
+			id="onbtn">4.충전</button>
 	</div>
 	<div id="btn5">
-		<button style="width: 200px; height: 150px;" class="btn btn-warning" onclick="location.href ='./CsCenter/CsMain'">5.고객센터</button>
+		<button style="width: 200px; height: 150px;" class="btn btn-warning"
+			onclick="location.href ='./CsMain'">5.고객센터</button>
 	</div>
-	 
-	<div class="row" id = "righttable">
+
+	<div class="row" id="righttable">
 		<div class="col-sm-6">
 			<table cellspacing="0" cellpadding="0" class="table table-hover">
 				<caption>
-					<h1 align = "center">공지사항</h1>
+					<h1 align="center">공지사항</h1>
 				</caption>
 				<thead>
 					<tr class="table-active">
@@ -114,4 +115,12 @@ table, th, td {
 		</div>
 	</div>
 </body>
+<script>
+	/* console.log(${sessionScope.intermsg}) */
+	$('#onbtn').click(function(){
+		if(${sessionScope.intermsg != null}){
+			${sessionScope.intermsg};
+		}
+	});
+</script>
 </html>

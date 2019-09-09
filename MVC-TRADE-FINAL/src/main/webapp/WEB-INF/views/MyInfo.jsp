@@ -6,6 +6,12 @@
 <head>
 <link rel="stylesheet" type="text/css"
 	href="resources/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css"
+	href="https://cdn.jsdelivr.net/npm/sweetalert2@8.17.1/dist/sweetalert2.min.css" />
+
+<script
+	src="https://cdn.jsdelivr.net/npm/sweetalert2@8.17.1/dist/sweetalert2.min.js"></script>
+
 <style type="text/css">
 #title {
 	position: relative;
@@ -111,6 +117,9 @@
 </head>
 
 <body>
+<script>
+swal.fire("","111","error");
+</script>
 	<div id="title">내 정보</div>
 
 	<div id="btn1">
