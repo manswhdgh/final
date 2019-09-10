@@ -2,7 +2,20 @@
 <!DOCTYPE mapper PUBLIC "-http://mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"  >
 
 <mapper namespace="com.proj.trade.dao.IUserDao">
-	<!-- <select id="getbList" resultType="mBoard">
-		SELECT * FROM MESSAGE 
-	</select> -->
+	<select id="getmList" resultType="message">
+		SELECT * FROM MESSAGE
+	</select>
+
+	<select id="getContents" resultType="message">
+		SELECT * FROM MESSAGE
+		WHERE
+		MS_NUM = #{bNum}
+	</select>
+
+	<select id="getklist" resultType="message">
+		SELECT * FROM MESSAGE
+		WHERE
+		MS_GROUP = #{kList}
+	</select>
 </mapper>
+

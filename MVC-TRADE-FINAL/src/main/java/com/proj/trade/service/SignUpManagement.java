@@ -36,6 +36,8 @@ public class SignUpManagement{
 	}
 	//회원가입
 	public String signUp(Member mb){
+		System.out.println("id : " + mb.getM_Id());
+		System.out.println("pw : " + mb.getM_Pw());
 		mav = new ModelAndView();
 		BCryptPasswordEncoder pwdEncoder=new BCryptPasswordEncoder();
 		mb.setM_Pw(pwdEncoder.encode(mb.getM_Pw()));

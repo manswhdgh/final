@@ -12,6 +12,4 @@ public interface IUserDao {
 	Message getContents(Integer bNum);
 
 	List<MsgList> getklist(Integer anum);
-	/* List<Message> getaContent(Integer bNum); */
-
 }

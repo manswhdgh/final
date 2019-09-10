@@ -54,7 +54,7 @@ label {
 					data-target="#LoginModal">로그인</button>
 			<!-- <button type="button" class="btn btn-primary" data-toggle="modal"
 					data-target="#myModal">회원가입</button> -->
-			<form name="signup" id="signFrm" method="post" class="formsort">
+			<form name="signup" id="signUpFrm" method="post" class="formsort">
 				<button type="button" class="btn btn-primary" data-toggle="modal"
 					data-target="#SignUpModal">회원가입</button>
 			</form>
