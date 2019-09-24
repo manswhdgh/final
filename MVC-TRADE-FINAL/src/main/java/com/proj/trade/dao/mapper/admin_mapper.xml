@@ -49,5 +49,35 @@
 			b_Contents LIKE '%${val}%' 
 		</if>
 	</select>
+	
+
+
+<select id="getInqList" parameterType="int" resultType="qna">
+<![CDATA[ 
+		SELECT * FROM QNA_1  WHERE Q_RONUM >= #{inqNum}*8-7 AND 
+		Q_RONUM<=#{inqNum}*8
+		 
+		 ]]>
+</select>
+<select id="getInqCount" resultType="int">
+		SELECT COUNT(*) FROM QNA_1 
+</select>	
+
+<select id="getContents" parameterType="int" resultType="qna">
+		SELECT * FROM QNA_1  WHERE q_Register=#{q_Register}
+	</select>
+	
+	
+	<insert id="putQnaReply">
+		INSERT INTO REPLY VALUES(REPLY_SEQ.NEXTVAL, #{reply}, SYSDATE, #{register})
+	</insert>
+	
+	<update id="changeStatus">
+		UPDATE QNA SET Q_STATUS=1 WHERE Q_REGISTER=#{register}
+	</update>
+	
+	<select id="getQfList" resultType="qfFile">
+		SELECT * FROM QNAFILE WHERE QF_REGISTER= #{q_Register}
+	</select>
 
 </mapper>

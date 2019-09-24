@@ -11,31 +11,78 @@
 			SELECT QNA_SEQ.NEXTVAL FROM DUAL
 		</selectKey>
 		
-		
 		INSERT INTO QNA  (Q_Register,Q_TITLE,Q_CONTENT,Q_DATE,Q_STATUS,Q_MID)
 		VALUES(${q_Register},#{q_Title},#{q_Content},default,0,#{q_mid})
-		
 
-</insert>
+</insert> 
 
 <insert id="fileInsert">
 		INSERT INTO QNAFILE(QF_FNAME,QF_FPATH,QF_REGISTER) VALUES(#{oriFileName},#{sysFileName},#{q_Register})
 	</insert>
 	
-<!-- <select id="QnaList" resultType="qna">
-	
-			SELECT * FROM QNA order by Q_DATE DESC
-	
-	</select> -->
-<select id="QnaList" parameterType="int" resultType="qna">
+<select id="QnaList" parameterType="int" resultType="qna"> 
 <![CDATA[ 
-		SELECT * FROM QNA_1  WHERE Q_RONUM >= #{qpNum}*5-4 AND 
-		Q_RONUM<=#{qpNum}*5  
-		 ]]>
+		SELECT * FROM QNA_1  WHERE Q_RONUM >= #{qpNum}*8-7 AND 
+		Q_RONUM<=#{qpNum}*8 
+		 
+		 ]]> 
 </select>
+
+<select id="ReportList" parameterType="int" resultType="report">
+<![CDATA[ 
+		SELECT * FROM REPORT_1  WHERE REP_RONUM >= #{rpNum}*8-7 AND 
+		REP_RONUM<=#{rpNum}*8
+		 
+		 ]]> 
+</select>
+
+
+
+
 <select id="getBoardCount" resultType="int">
 		SELECT COUNT(*) FROM QNA_1 
 </select>
- 
+
+<select id="RepBoardCount" resultType="int">
+		SELECT COUNT(*) FROM REPORT_1 
+</select>
+
+
+
+<select id="getListView" parameterType="int" resultType="qna">
+		SELECT * FROM QNA_1 WHERE Q_REGISTER=#{q_Register}
+</select>
+
+
+
+
+<insert id="RepBoardInsert" parameterType="Report"
+		useGeneratedKeys="true" keyProperty="rep_Num">
+<selectKey keyProperty="rep_Num" resultType="int" order="BEFORE">
+			SELECT Report_SEQ.NEXTVAL FROM DUAL
+</selectKey>
+		
+		
+		INSERT INTO Report  (rep_Num,rep_mId,rep_Title,rep_Date,rep_aDate,rep_Group,rep_Content,rep_aGroup)
+		VALUES(${rep_Num},#{rep_mId},#{rep_Title},default,default,0,#{rep_Content},0)
+		
+
+</insert>
+
+<insert id="RepFileInsert">
+		INSERT INTO REPORTFILE(RPF_FNAME,RPF_FPATH,RPF_RENUM) VALUES(#{oriFileName},#{sysFileName},#{rep_Num})
+	</insert>
+	
+<select id="getReportView" parameterType="int" resultType="report">
+		SELECT * FROM REPORT_1 WHERE REP_NUM=#{rep_Num}
+</select>	
+
+<delete id= "Q_boardDelete" >
+      DELETE FROM QNA WHERE q_Register= #{q_Register} 
+</delete>
+
+<update id="boardUpdate">
+	UPDATE QNA SET Q_CONTENT=#{content}, Q_TITLE=#{title} WHERE Q_REGISTER=#{register}
+</update> 
 
 </mapper>

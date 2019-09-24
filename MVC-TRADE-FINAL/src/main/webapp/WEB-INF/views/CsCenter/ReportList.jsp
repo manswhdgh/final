@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>	
+
+	
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,6 +33,7 @@ table td, th {
 
 th {
 	background: skyblue;
+	
 }
 
 a {
@@ -37,14 +42,52 @@ a {
 }
 
 .QnaList {
-	margin-top: 15%;
+	margin-top: 90px;
 }
 
 td {
 	height: 50px;
 }
+.menu{
+float:left;
+position:absolute;
+bottom:150px;
+
+}
+li{
+list-style:none;
+}
+#wrap {
+	width: 100%;
+	margin: 0 auto 0 auto;
+}
+
+#header {
+	text-align: center;
+	width: 100%;
+	height: 150px;
+	background-color: #F5F5F5;
+	padding: 60px 0px;
+}
+
+
 </style>
 <body>
+ <div id="wrap">
+		<div id="header">
+			<jsp:include page="Header.jsp"/>
+		</div>
+<ul class="menu">
+		<li><input type="button" style="width: 110pt; height: 110pt;"
+			value="1대1문의하기" class="la"></li>
+		<li><input type="button" style="width: 110pt; height: 110pt;"
+			value="나의질문과답변" class="lb"></li>
+		<li><input type="button" style="width: 110pt; height: 110pt;"
+			value="FAQ" class="lc"></li>
+		<li><input type="button" style="width: 110pt; height: 110pt;"
+			value="신고하기" class="ld"></li>
+	</ul>
+	
 
 	<div class="QnaList" align="center">
 		<h1>신고게시판</h1>
@@ -53,53 +96,27 @@ td {
 				<td colspan="5" style="border: white; text-align: right"><a
 					href="">신고하자</a></td>
 			</tr>
-
 			<tr>
-				<th>번호</th>
-				<th>제목</th>
-				<th>글쓴이</th>
-				<th>날짜</th>
+				<th width=40px  style="text-align:center">번호</th>
+				<th  style="text-align:center">제목</th>
+				<th width=100px  style="text-align:center">글쓴이</th>
+				<th width=90px  style="text-align:center" >날짜</th>
+		   </tr>
+		 <c:forEach var="report" items="${Rblist}">
 			<tr>
-				<td>1</td>
-				<td>안녕하세요 제목입니다.......</td>
-				<td>유지권</td>
-				<td>2019.08.19</td>
+				<td align="center">${report.rep_Num}</td>
+				<td><a href="ReportView?rep_Num=${report.rep_Num}">${report.rep_Title}</a></td>
+				<td align="center">${report.rep_mId }</td>
+				<td><fmt:formatDate value="${report.rep_Date}" pattern="yyyy.MM.dd"/></td>
 			</tr>
-			<tr>
-				<td>2</td>
-				<td>거래하다가..그새끼가...</td>
-				<td>유지권</td>
-				<td>2019.08.19</td>
-			</tr>
-			<tr>
-				<td>3</td>
-				<td>득템운영자님 도와주세요...</td>
-				<td>유지권</td>
-				<td>2019.08.19</td>
-			</tr>
-			<tr>
-				<td>3</td>
-				<td>아니 이건 아닌거 같아요...</td>
-				<td>유지권</td>
-				<td>2019.08.19</td>
-			</tr>
-			<tr>
-				<td>4</td>
-				<td>아니이건 아닌거 같아요...</td>
-				<td>유지권</td>
-				<td>2019.08.19</td>
-			</tr>
-			<tr>
-				<td>5</td>
-				<td>아니이건 아닌거 같아요...</td>
-				<td>유지권</td>
-				<td>2019.08.19</td>
-			</tr>
-
-
+		</c:forEach>
 
 		</table>
 	</div>
+	<br>
+	<br>
+	 <div align="center">${Repaging}</div>
+	
 	<br>
 	<br>
 	<div class="form-group row justify-content-center">

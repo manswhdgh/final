@@ -1,17 +1,25 @@
 package com.proj.trade.service;
 
 import java.util.List;
+import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.google.gson.Gson;
 import com.proj.trade.bean.Board;
+import com.proj.trade.bean.Qna;
+import com.proj.trade.bean.QnaFile;
+import com.proj.trade.bean.Report;
 import com.proj.trade.dao.IAdminDao;
 import com.proj.trade.userClass.Paging;
+import com.proj.trade.userClass.Q_FileUpload;
 
 @Service
 public class AdminManagement {
@@ -19,6 +27,9 @@ public class AdminManagement {
 	IAdminDao aDao;
 	@Autowired
 	HttpSession session;
+	
+	@Autowired
+	private Q_FileUpload upload;
 	
 	ModelAndView mav;
 	
@@ -110,5 +121,100 @@ public class AdminManagement {
 	}
 	
 	
+	
+	public ModelAndView inquiry(Integer pageNum) {  // 관리자 측 1대1문의사항 리스트  
+		mav = new ModelAndView();
+		List<Qna> inqList = null;  
+		String view = null;
+		int inqNum = (pageNum == null) ? 1:pageNum;
+		inqList = aDao.getInqList(inqNum);
+		
+		if(inqList != null) {
+			view = "inquiry";
+			mav.addObject("inquiry", inqList);
+			mav.addObject("Ipaging", inqPaging(inqNum)); 
+
+		}else {  
+		view="Main"; 
+		}
+		mav.setViewName(view);
+		
+		return mav;
+	}
+	private String inqPaging(int inqNum) { // 판매자 측 페이징 
+		int maxNum = aDao.getInqCount(); // 총 글의 갯수
+		int listCount = 5; 
+		int pageCount = 10;
+		String boardName = "inquiry";  // 페이징 처리할 보드 이름 
+		Paging paging = new Paging(maxNum, inqNum, listCount, pageCount, boardName);
+		return paging.makeHtmlPaging();  // user service 페이징 클래스
+	}
+	
+	
+	public ModelAndView contents(Integer q_Register) {
+		mav = new ModelAndView();
+		String view = null;
+		Qna qna = aDao.getContents(q_Register);
+		List<QnaFile> qfList =aDao.getQfList(q_Register);
+		mav.addObject("qna", qna);
+		mav.addObject("qfList",qfList);
+		/*
+		 * List<Qna> clist = aDao.getReplyList(q_Register); mav.addObject("rqList",
+		 * clist);
+		 */
+		/*
+		 * List<QnaFile> qnfList = aDao.getqnfList(q_Register);
+		 * System.out.println("fsize = " + qnfList.size()); mav.addObject("qnfList",
+		 * qnfList);
+		 */
+		view = "inquiryAjax";
+		mav.setViewName(view);
+		
+		return mav;
+	}
+	
+	
+	@Transactional
+	public ModelAndView putQnaReply(String reply, String q_Register) {
+		mav = new ModelAndView();
+		String view = null; 
+		
+		
+		if(aDao.putQnaReply(reply, q_Register)) {
+			if(aDao.changeStatus(q_Register)) {
+				view = "redirect:inquiry";
+			} else {
+				view = "redirect:";
+			}
+		} else {
+			view = "redirect:";
+		}
+		mav.setViewName(view);
+		
+		return mav;
+	}
+	public void download(Map<String, Object> param) throws Exception {
+		
+		String oriFileName = param.get("oriFileName").toString();
+		String sysFileName = param.get("sysFileName").toString();
+		String root = param.get("root").toString();
+		String fullPath = root+"/resources/QNAUpload/"+sysFileName;
+		
+		System.out.println("fullPath = " + fullPath);
+		System.out.println("oriFileName = " + oriFileName);
+		System.out.println("sysFileName = " + sysFileName);
+		
+		HttpServletResponse q_Down = (HttpServletResponse)param.get("response");
+		upload.download(fullPath, oriFileName, q_Down);
+		
+	}
 
 }
+
+		
+	
+
+		
+
+
+

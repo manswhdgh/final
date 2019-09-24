@@ -11,6 +11,7 @@
 	crossorigin="anonymous">
 <style>
 .ReportBox {
+margin-top:50px;
 	
 }
 
@@ -29,9 +30,9 @@ th {
 	background: skyblue;
 }
 
-.b {
-	margin-top: 10px;
-}
+/* .b {
+	margin-top: 50px;
+} */
 
 .list {
 	list-style-type: none;
@@ -50,7 +51,7 @@ h1 {
 .menu {
 	float: left;
 	position: absolute;
-	margin-top: 210px;
+	margin-top: 90px;
 }
 
 li {
@@ -66,12 +67,32 @@ li {
 margin : 0 auto;
 
 }
+#wrap {
+	width: 100%;
+	margin: 0 auto 0 auto;
+}
+
+#header {
+	text-align: center;
+	width: 100%;
+	height: 150px;
+	background-color: #F5F5F5;
+	padding: 60px 0px;
+}
+.top{
+margin-top:70px;
+}
+
 </style>
-
-
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 
 <body>
+<div id="wrap">
+		<div id="header">
+			<jsp:include page="Header.jsp"/>
+		</div>
 	<ul class="menu">
 		<li><input type="button" style="width: 110pt; height: 110pt;"
 			value="1대1문의하기" class="la"></li>
@@ -82,72 +103,74 @@ margin : 0 auto;
 		<li><input type="button" style="width: 110pt; height: 110pt;"
 			value="신고하기" class="ld"></li>
 	</ul>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<hr>
+	
+ <form action="ReportWrite" enctype="multipart/form-data" method="post">
 	<div class="top">
 		<h1>고객센터 신고하기</h1>
-	</div>
-	<div class="form-group row justify-content-center">
-		<div class="w100" style="padding-right: 10px">
-			<select class="form-control form-control-sm" name="searchType"
-				id="searchType">
-				<option value="title">제목</option>
-				<option value="Content">내용</option>
-				<option value="reg_id">날짜</option>
-			</select>
-		</div>
-
-		<div class="w300" style="padding-right: 10px">
-			<input type="text" class="form-control form-control-sm"
-				name="keyword" id="keyword">
-		</div>
-		<div>
-			<button class="btn btn-sm btn-primary" name="btnSearch"
-			id="btnSearch">거래 리스트 검색</button>
-		</div>
-	</div>
-
-
+		<br>
+	
 	<table class="b" align="center">
 		<tr>
 			<th>상담분류선택</th>
-			<td><input type="checkbox">일반거래사기</td>
-			<td><input type="checkbox">경매거래사기</td>
-			<td><input type="checkbox">기타</td>
+			<td><input type="checkbox" id="a" name="a">일반거래사기</td>
+			<td><input type="checkbox" id="b" name="b">경매거래사기</td>
+			<td><input type="checkbox" id="c" name="c">기타</td>
 		</tr>
 	</table>
-	<br>
+	</div>
 	<div class="ReportBox" align="center">
-
+		
 		<table>
 
 			<tr>
-				<th>제목</th>
-				<td><input type="text" size="120" style="border: none"></td>
+				<th style="text-align:center">제목</th>
+				<td><input type="text" size="120" style="border: none" name="Rep_Title" id="Rep_Title"></td>
 			</tr>
 			<tr>
-				<th>문의내용</th>
-				<td><textarea cols="120" rows="10" style="border: none"></textarea></td>
+				<th style="text-align:center">문의내용</th>
+				<td><textarea cols="120" rows="15" style="border: none" name="Rep_Content" id="Rep_Content"></textarea></td>
 			</tr>
 			<tr>
-				<th>첨부파일</th>
-				<td><input type="file"></td>
+				<th style="text-align:center">첨부파일</th>
+				<td><input type="file"  multiple="multiple" id="Rep_File" name="Rep_File" onchange="fileChk(this)">
+					<input type="hidden" value="0" id="fileCheck" name="fileCheck">
+				</td>
+			
 			</tr>
 		</table>
 
-		<br> <input type="submit" value="신고하기"> <input
-			type="button" value="취소하기">
-
-
+		<br> 
+		<input type="submit" value="신고하기">   
+	    <input type="button" value="취소하기" onclick="window.location ='CsMain'">
 	</div>
-	
+	</form>
 	
 
 </body>
+<script>
+function fileChk(elem){
+	console.log(elem);
+	console.log(elem.value);
+	if(elem.value == ""){ //첨부한 파일이 없다면
+		console.log("empty");
+		$('#fileCheck').val(0);
+	}else{
+		console.log("not empty");
+		$('#fileCheck').val(1);
+	}
+} 
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
 </html>

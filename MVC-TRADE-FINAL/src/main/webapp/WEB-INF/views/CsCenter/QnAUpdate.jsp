@@ -120,53 +120,38 @@ margin-top:90px;
 	
 	
 	<div class="qfrm" align="center">
-	    <h1>고객센터 1대1문의하기</h1>
+	    <h1>1대1문의 수정</h1>
 		<br>
-	<form action="boardWrite" enctype="multipart/form-data" method="post">
+	<form action="boardUpdate" method="post">
 	
 		<table align="center">
 			<tr>
 				<th height="20px"  style="text-align:center">제목</th>
 				<td><input type="text" size="120" style="border: none"
-					id="q_Title" name="q_Title"></td>
+					id="q_Title" name="q_Title" value="${Qna.q_Title}"></td>
 			</tr>
 			<tr>
 				<th style="text-align:center">문의내용</th>
 				<td><textarea cols="120" rows="20" style="border: none"
-						id="q_Content" name="q_Content"></textarea></td>
+						id="q_Content" name="q_Content">${Qna.q_Content}</textarea>
+					<input type="hidden" name="q_Register" value="${Qna.q_Register}">	
+				</td>
 			</tr>
 			<tr>
-				<th  style="text-align:center">첨부파일</th>
+				<th  style="text-align:center">첨부파일(수정불가)</th>
 				<td>
-					<input multiple="multiple" type="file" id="q_File" name="q_File" onchange="fileChk(this)"> 
-					<input type="hidden" value="0" id="fileCheck" name="fileCheck">
+					<input multiple="multiple" type="file" id="q_File" name="q_File" disabled>
 				</td>
 			</tr>
 		</table>
 		<br>
 		<div class="a">
-			<input type="submit" value="등록">
+			<input type="submit" value="수정">
 			 <input type="button" value="취소하기" onclick="window.location ='CsMain'">
 		</div>
 	</form>
 </div>
 </body>
-
-<script>
-
- function fileChk(elem){
-	console.log(elem);
-	console.log(elem.value);
-	if(elem.value == ""){ //첨부한 파일이 없다면
-		console.log("empty");
-		$('#fileCheck').val(0);
-	}else{
-		console.log("not empty");
-		$('#fileCheck').val(1);
-	}
-} 
-
-</script>
 
 
 </html>

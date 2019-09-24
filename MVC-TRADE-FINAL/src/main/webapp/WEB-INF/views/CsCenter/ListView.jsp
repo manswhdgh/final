@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,7 +32,7 @@ background:skyblue;
 width:120px;
 }
 .top{
-margin-top:130px;
+margin-top:80px;
 
 }
 
@@ -43,6 +45,19 @@ bottom:150px;
 li{
 list-style:none;
 }
+#wrap {
+	width: 100%;
+	margin: 0 auto 0 auto;
+}
+
+#header {
+	text-align: center;
+	width: 100%;
+	height: 150px;
+	background-color: #F5F5F5;
+	padding: 60px 0px;
+}
+
 
 
 
@@ -55,31 +70,39 @@ list-style:none;
 		 <li><input type="button"style="width:110pt; height:110pt;"value="FAQ" class="lc"></li>
 		 <li><input type="button"style="width:110pt; height:110pt;"value="신고하기" class="ld"></li>
         </ul>
-
+<div id="wrap">
+		<div id="header">
+			<jsp:include page="Header.jsp"/>
+		</div>
+	
 <div class="top" align="center">
-<hr>
-<br>
+
  <h1>1대1문의내역</h1>
 <br>
 <br>
+	<a href="Q_BoardDelete?q_Register=${Qna.q_Register}">삭제</a>
+	<a href="boardUpdateFrm?q_Register=${Qna.q_Register }">수정</a>
+	<br>
 	<table align="center">	
 	<tr>
-		<th> 작성자 </th><td> 유지권 </td> 
-		<th>작성일</th><td>2019.08.21</td>
+		<th  style="text-align:center"> 번호 </th><td>${Qna.q_Register}</td> 
+		<th  style="text-align:center"> 작성자 </th><td>${Qna.q_mid}</td> 
+		<th  style="text-align:center">작성일</th><td>${Qna.q_Date}</td>
+		
 		
 	 </tr>
 	
 	<tr>
-		<th>제목</th><td colspan="3">안녕하세요 유지권입니다.</td>
+		<th style="text-align:center">제목</th><td colspan="5">${Qna.q_Title}</td>
 	</tr>
 	
 	<tr>
-		<th >내용</th>
-		<td colspan="3" height="200px">qwqweqweqweqweqweqweqweqwe</td>
+		<th  style="text-align:center">내용</th>
+		<td colspan="5" height="200px">${Qna.q_Content}</td>
 	</tr>
 	<tr>
-		<th>문의답변</th>
-		<td colspan="3" height="200px">asdasdasdasdasdasdasdsa</td>
+		<th style="text-align:center">문의답변</th>
+		<td colspan="5" height="200px">${Qna.r_Content }</td>
 	</tr>
 	
 	
@@ -87,7 +110,7 @@ list-style:none;
 	
 	</table>
 	<br>
-	<input type="button" value="뒤로가기">
+	<input type="button" value="뒤로가기" onclick="window.location ='QnaList'" >
 	
 	
 	

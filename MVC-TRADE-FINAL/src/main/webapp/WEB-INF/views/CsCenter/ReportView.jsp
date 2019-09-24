@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,7 +19,6 @@ table{
 	border-collapse:collapse;
 	font-size:12px;
 	line-height:24px;
-	
 
 }
 table td,th{
@@ -28,27 +29,46 @@ padding:5px;
 th{
 background:skyblue;
 width:120px;
+text-align:center;
 }
 .top{
-margin-top:130px;
+margin-top:10px;
 
 }
 
 .menu{
 float:left;
 position:absolute;
-bottom:150px;
+margin-top:100px;
 
 }
 li{
 list-style:none;
 }
 
+#wrap {
+	width: 100%;
+	margin: 0 auto 0 auto;
+}
+
+#header {
+	text-align: center;
+	width: 100%;
+	height: 150px;
+	background-color: #F5F5F5;
+	padding: 60px 0px;
+}
 
 
 </style>
 
+
 <body>
+<div id="wrap">
+		<div id="header">
+			<jsp:include page="Header.jsp"/>
+		</div>
+
        <ul class="menu">
        <li><input type="button" style="width:110pt; height:110pt;" value="1대1문의하기" class="la"> </li>
 		 <li><input type="button" style="width:110pt; height:110pt;"value="나의질문과답변" class="lb"></li>	
@@ -57,7 +77,6 @@ list-style:none;
         </ul>
 
 <div class="top" align="center">
-<hr>
 <br>
 <br>
  <h1>신고하기</h1>
@@ -65,28 +84,24 @@ list-style:none;
 <br>
 	<table align="center">	
 	<tr>
-		<th> 작성자 </th><td> 유지권 </td> 
-		<th>작성일</th><td>2019.08.21</td>
-		
+		<th  style="text-align:center"> 번호 </th><td>${Report.rep_Num}</td> 
+		<th  style="text-align:center"> 작성자 </th><td>${Report.rep_mId}</td> 
+		<th  style="text-align:center">작성일</th><td>${Report.rep_Date}</td>
 	 </tr>
-	
 	<tr>
-		<th>제목</th><td colspan="3">안녕하세요 유지권입니다.</td>
-	</tr>
-	
-	<tr>
-		<th >내용</th>
-		<td colspan="3" height="200px">qwqweqweqweqweqweqweqweqwe</td>
+		<th  style="text-align:center">제목</th><td colspan="5">${Report.rep_Title}</td>
 	</tr>
 	<tr>
-		<th>문의답변</th>
-		<td colspan="3" height="200px">asdasdasdasdasdasdasdsa</td>
+		<th  style="text-align:center" >내용</th>
+		<td colspan="5" height="200px">${Report.rep_Content}</td>
 	</tr>
-	
-	
-	
+	<tr>
+		<th style="text-align:center" >문의답변</th>
+		<td colspan="5" height="200px">asdasdasdasdasdasdasdsa</td>
+	</tr>
 	
 	</table>
+	</div>
 	<br>
 	<input type="button" value="뒤로가기">
 	
